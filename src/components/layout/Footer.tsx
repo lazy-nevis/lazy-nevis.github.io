@@ -114,7 +114,7 @@ export function Footer() {
               href={SITE.url}
               className="text-primary hover:underline cursor-pointer"
             >
-              lazy-nevis.github.io
+              {new URL(SITE.url).host}
             </a>
           </p>
         </div>

@@ -4,7 +4,7 @@ Visão geral para agentes de IA (Cursor, Claude Code, etc.) trabalhando neste re
 
 ## O que é este projeto
 
-Landing page open-source do **LazyNevis**, publicada em [lazy-nevis.github.io](https://lazy-nevis.github.io). Repositório: `SimStm/lazy-nevis.github.io`.
+Landing page open-source do **LazyNevis**, publicada em [lazy-nevis.github.io](https://lazy-nevis.github.io). Repositório: [lazy-nevis/lazy-nevis.github.io](https://github.com/lazy-nevis/lazy-nevis.github.io).
 
 O app desktop vive em repositório separado: **[lazy-nevis/lazy-nevis](https://github.com/lazy-nevis/lazy-nevis)** (Tauri + Rust + React). Esta landing **não** contém código do app — apenas marketing, download links e documentação de apoio.
 
@@ -63,7 +63,7 @@ Deploy: push na branch `main` dispara GitHub Actions.
 2. **Conteúdo** — Textos traduzíveis em `src/i18n/messages/{en-US,pt-BR}.json`. URLs e dados estáticos em `src/data/content.ts`.
 3. **i18n** — `useTranslations('namespace')` nos componentes. Detecção automática de `pt-*` / regiões lusófonas; padrão `en-US`. SEO (`index.html`, JSON-LD) permanece em inglês.
 3. **Componentes** — Um arquivo por seção; props tipadas; sem `any`.
-4. **Ícones** — Lucide React apenas (sem emojis como ícones UI).
+4. **Ícones** — `@tabler/icons-react` apenas (sem emojis como ícones UI).
 5. **Acessibilidade** — `aria-label` em botões icon-only; headings sem pular níveis; `prefers-reduced-motion` respeitado.
 6. **Performance** — PhotoSwipe lazy; imagens `loading="lazy"` fora do hero; canvas pausa em `visibilitychange`.
 7. **Ordem das seções** — Header → Hero → Sobre → Features → Como Funciona → Instalação → Screenshots → Contribua → FAQ → Footer (obrigatório).
@@ -72,6 +72,7 @@ Deploy: push na branch `main` dispara GitHub Actions.
 
 | Recurso | Origem |
 |---------|--------|
+| Landing (este repo) | [lazy-nevis/lazy-nevis.github.io](https://github.com/lazy-nevis/lazy-nevis.github.io) |
 | README / features / FAQ | `lazy-nevis/lazy-nevis` README |
 | Screenshots | `docs/screenshots/` no repo principal |
 | Logo / app icon | `src/assets/brand/` no repo principal |

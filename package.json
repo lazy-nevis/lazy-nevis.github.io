@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://lazy-nevis.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lazy-nevis/lazy-nevis.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lazy-nevis/lazy-nevis/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

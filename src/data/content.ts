@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'LazyNevis',
   url: 'https://lazy-nevis.github.io',
+  landingRepoUrl: 'https://github.com/lazy-nevis/lazy-nevis.github.io',
   repoUrl: 'https://github.com/lazy-nevis/lazy-nevis',
   releasesUrl: 'https://github.com/lazy-nevis/lazy-nevis/releases',
   discussionsUrl: 'https://github.com/lazy-nevis/lazy-nevis/discussions',

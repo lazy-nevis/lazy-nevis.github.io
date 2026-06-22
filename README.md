@@ -37,6 +37,7 @@ Push to `main` deploys via GitHub Actions.
 
 ## Related
 
+- Landing repository: [lazy-nevis/lazy-nevis.github.io](https://github.com/lazy-nevis/lazy-nevis.github.io)
 - App repository: [lazy-nevis/lazy-nevis](https://github.com/lazy-nevis/lazy-nevis)
 - Releases: [GitHub Releases](https://github.com/lazy-nevis/lazy-nevis/releases)
 - Author: [SimStm](https://github.com/SimStm) · [SIMSDEV](https://sims.dev.br)
