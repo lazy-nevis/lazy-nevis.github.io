@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/grid';
+@import 'swiper/css/effect-coverflow';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #0b0f10;
+  --color-foreground: #e0e3e5;
+  --color-card: rgb(18 19 26 / 0.6);
+  --color-card-foreground: #e0e3e5;
+  --color-popover: rgb(29 32 34 / 0.9);
+  --color-popover-foreground: #e0e3e5;
+  --color-primary: #ffb3ad;
+  --color-primary-foreground: #fff5f4;
+  --color-primary-container: #d63031;
+  --color-on-primary-container: #fff5f4;
+  --color-secondary: #c5c5d8;
+  --color-secondary-foreground: #191b28;
+  --color-muted: #323537;
+  --color-muted-foreground: #ab8985;
+  --color-accent: #1e202e;
+  --color-accent-foreground: #e0e3e5;
+  --color-destructive: #ffb4ab;
+  --color-destructive-foreground: #690005;
+  --color-border: rgb(255 255 255 / 0.1);
+  --color-input: rgb(255 255 255 / 0.15);
+  --color-ring: #d63031;
+  --color-success: #6ee7b7;
+  --color-warning: #fbbf24;
+  --color-brand-pink: #ff9996;
+  --color-brand-accent: #e84393;
+  --color-surface-container: #1d2022;
+  --color-surface-container-low: #191c1e;
+  --color-surface-container-high: #272a2c;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  --spacing-container: 1.5rem;
+  --spacing-section: 5rem;
+
+  --text-display: 3rem;
+  --text-display--line-height: 1.1;
+  --text-display--font-weight: 800;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-headline-lg: 2rem;
+  --text-headline-lg--line-height: 1.25;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-md: 1.5rem;
+  --text-headline-md--line-height: 1.33;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.56;
+
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.5;
+
+  --text-label-md: 0.875rem;
+  --text-label-md--line-height: 1.25;
+  --text-label-md--font-weight: 600;
+  --text-label-md--letter-spacing: 0.04em;
+
+  --text-label-sm: 0.75rem;
+  --text-label-sm--line-height: 1.33;
+  --text-label-sm--font-weight: 500;
+  --text-label-sm--letter-spacing: 0.04em;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --glass-bg: rgb(18 19 26 / 0.55);
+    --glass-blur: 20px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+  }
+
+  ::selection {
+    @apply bg-primary-container/40 text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: var(--text-display);
+    line-height: var(--text-display--line-height);
+    font-weight: var(--text-display--font-weight);
+    letter-spacing: var(--text-display--letter-spacing);
+  }
+
+  @media (max-width: 767px) {
+    .text-display {
+      font-size: 2.25rem;
+      font-weight: 700;
+    }
+  }
+
+  .text-headline-lg {
+    font-size: var(--text-headline-lg);
+    line-height: var(--text-headline-lg--line-height);
+    font-weight: var(--text-headline-lg--font-weight);
+  }
+
+  @media (max-width: 767px) {
+    .text-headline-lg {
+      font-size: 1.75rem;
+    }
+  }
+
+  .text-headline-md {
+    font-size: var(--text-headline-md);
+    line-height: var(--text-headline-md--line-height);
+    font-weight: var(--text-headline-md--font-weight);
+  }
+
+  .text-body-lg {
+    font-size: var(--text-body-lg);
+    line-height: var(--text-body-lg--line-height);
+  }
+
+  .text-body-md {
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+  }
+
+  .text-label-md {
+    font-size: var(--text-label-md);
+    line-height: var(--text-label-md--line-height);
+    font-weight: var(--text-label-md--font-weight);
+    letter-spacing: var(--text-label-md--letter-spacing);
+  }
+
+  .text-label-sm {
+    font-size: var(--text-label-sm);
+    line-height: var(--text-label-sm--line-height);
+    font-weight: var(--text-label-sm--font-weight);
+    letter-spacing: var(--text-label-sm--letter-spacing);
+  }
+
+  .px-container {
+    @apply px-4 md:px-6;
+  }
+
+  .py-section {
+    @apply py-14 md:py-20;
+  }
+
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--color-border);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  }
+
+  .btn-gradient {
+    @apply bg-primary-container text-primary-foreground shadow-[0_4px_20px_rgb(214_48_49/0.35)] transition-all duration-200 hover:bg-[#c42a2a] active:scale-[0.98];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent;
+  }
+
+  .section-heading-accent {
+    @apply relative inline-block pb-3 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gradient-to-r after:from-transparent after:via-primary-container/80 after:to-transparent;
+  }
+
+  .overflow-x-clip {
+    overflow-x: clip;
+  }
+}
+
+.swiper-button-disabled {
+  @apply opacity-40 pointer-events-none;
+}
+
+.pswp {
+  --pswp-placeholder-bg: transparent;
+}
+
+.pswp__img {
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+div.pswp__img--placeholder,
+.pswp__img--with-bg {
+  background: transparent !important;
+}
+
+.screenshots-coverflow .swiper-slide {
+  width: min(78vw, 300px);
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .screenshots-coverflow .swiper-slide {
+    width: min(38vw, 420px);
+  }
+}

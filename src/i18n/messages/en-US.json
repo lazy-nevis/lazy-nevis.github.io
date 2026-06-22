@@ -1,0 +1,316 @@
+{
+  "common": {
+    "appName": "LazyNevis",
+    "download": "Download",
+    "github": "GitHub",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "openMenu": "Open menu",
+    "home": "LazyNevis home",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "placeholder": "Placeholder image"
+  },
+  "nav": {
+    "about": "About",
+    "install": "Install",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "screenshots": "Screenshots",
+    "contribute": "Contribute",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Privacy-first · Local-only",
+    "subBadge": "100% free, open-source · cross-platform",
+    "title": "Track your behavior.",
+    "subTitle": "Improve your focus.",
+    "titleAccent": "Be productive.",
+    "description": "LazyNevis is a privacy-first desktop focus tool. It watches the active window during a session, classifies your time as focused or distracted, and nudges you when you drift — without ever blocking an app or sending data anywhere.",
+    "tagline": "LazyNevis - for lazy people who don't give upis.",
+    "ctaDownload": "Download",
+    "ctaGithub": "View on GitHub",
+    "iconAlt": "LazyNevis app icon — red bucket hat mascot"
+  },
+  "about": {
+    "title": "Observe. Classify. Nudge.",
+    "description": "Most focus apps block distractions or lock you into timers. LazyNevis takes a different path.",
+    "p1": "During a session, LazyNevis polls the active window every second and classifies that second as <focused>focused</focused>, <distracted>distracted</distracted>, or <idle>idle</idle> according to rules you define.",
+    "p2": "If distraction accumulates past a threshold you set, it fires an alert — a native notification, a fullscreen overlay, or a sound. You decide what to do next. <bold>Nothing is blocked.</bold>",
+    "p3": "Visible but not intrusive: the tray icon keeps LazyNevis out of your way while global shortcuts let you control sessions without switching windows.",
+    "pillars": {
+      "localFirst": {
+        "title": "Local-first",
+        "description": "All session data, settings, and audio files live in your OS application-data directory. No cloud sync."
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "No accounts, analytics, or telemetry. The only outbound request is a manual \"Check for updates\" from GitHub."
+      },
+      "noTelemetry": {
+        "title": "No telemetry",
+        "description": "Accessibility permission on your OS reads window titles only — never keystrokes. Your focus patterns stay on your machine."
+      }
+    }
+  },
+  "features": {
+    "title": "Everything you need to stay aware",
+    "description": "Session tools, classification, alerts, and history — all running locally on your machine.",
+    "items": {
+      "session": {
+        "title": "Session management",
+        "description": "Start, pause, resume, and stop with crash-safe recovery. Live timers and manual checkpoints."
+      },
+      "classification": {
+        "title": "Focus classification",
+        "description": "Allowlist or blocklist rules by app name or browser tab title. LazyNevis never flags itself."
+      },
+      "alerts": {
+        "title": "Alerts & notifications",
+        "description": "Native notifications, fullscreen overlay, or sound — with configurable thresholds and cooldowns."
+      },
+      "audio": {
+        "title": "Audio",
+        "description": "Built-in sounds plus custom MP3, WAV, or OGG files with looping overlay audio."
+      },
+      "breaks": {
+        "title": "Breaks",
+        "description": "Configurable break intervals based on focused time, with countdown and per-session history."
+      },
+      "history": {
+        "title": "History & export",
+        "description": "Visual timelines, charts, and export to JSON or CSV for any date range."
+      },
+      "customization": {
+        "title": "Customization",
+        "description": "English and Portuguese, light/dark themes, global shortcuts, and optional autostart."
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "No accounts, cloud sync, analytics, or telemetry. Manual update check only."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "description": "From session start to history review — a transparent loop you control.",
+    "steps": {
+      "1": {
+        "title": "Start a session",
+        "description": "Begin from the Dashboard or with a global shortcut whenever you are ready to focus."
+      },
+      "2": {
+        "title": "Monitor active window",
+        "description": "The monitor polls the active window every second using native OS APIs on macOS, Windows, and Linux."
+      },
+      "3": {
+        "title": "Classify each second",
+        "description": "The rule engine marks time as focused, distracted, or idle based on your allowlist or blocklist rules."
+      },
+      "4": {
+        "title": "Timers accumulate",
+        "description": "Focus, distraction, and idle totals update in real time on the Dashboard."
+      },
+      "5": {
+        "title": "Alerts when needed",
+        "description": "When distraction crosses your threshold, notifications, overlay, or sound fire — nothing is blocked."
+      },
+      "6": {
+        "title": "Review history",
+        "description": "Everything saves to local SQLite. Review timelines, charts, and exports on the History page."
+      }
+    }
+  },
+  "install": {
+    "title": "Download & install",
+    "description": "Install via the official script — it downloads the latest release, verifies the SHA-256 checksum, and sets up LazyNevis automatically.",
+    "detectedHint": "We detected your system — showing the recommended tab.",
+    "tabs": {
+      "macos": "macOS",
+      "windows": "Windows",
+      "linux": "Linux"
+    },
+    "shellLabel": {
+      "macos": "Terminal",
+      "windows": "PowerShell",
+      "linux": "Terminal"
+    },
+    "requirements": {
+      "macos": "macOS 12+ · Apple Silicon (ARM64). Intel Macs are not currently supported.",
+      "windows": "Windows 10+ · x64 or ARM64. Open PowerShell or PowerShell 7 (not Command Prompt).",
+      "linux": "x64 (amd64) · WebKit2GTK and a system tray library required. ARM64 is not supported on Linux."
+    },
+    "stableLabel": "Stable release",
+    "prereleaseLabel": "Pre-release / RC",
+    "prereleaseNote": "Pre-releases are skipped unless you add the prerelease flag explicitly.",
+    "commands": {
+      "macosStable": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh)",
+      "macosPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease",
+      "windowsStable": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))",
+      "windowsPrerelease": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease",
+      "linuxStable": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh)",
+      "linuxPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease"
+    },
+    "terminalTitle": {
+      "macos": "bash",
+      "linux": "lazynevis@linux: ~",
+      "windows": "Windows PowerShell"
+    },
+    "terminalStableComment": "# Installing stable release ({version})...",
+    "terminalPrereleaseComment": "# Installing pre-release / RC ({version})...",
+    "terminalStableCommentGeneric": "# Installing stable release...",
+    "terminalPrereleaseCommentGeneric": "# Installing pre-release / RC...",
+    "terminalReadyComment": "# LazyNevis ready.",
+    "loadingReleases": "Checking latest releases on GitHub…",
+    "releasesError": "Could not load release info. You can still use the commands below or visit GitHub Releases.",
+    "noReleases": "No installable releases are available yet. Check GitHub Releases for updates.",
+    "latestVersion": "Latest: {version}",
+    "stableVersion": "Stable: {version}",
+    "prereleaseVersion": "Pre-release: {version}",
+    "linuxDeps": "On Debian/Ubuntu, install dependencies first:",
+    "linuxDepsCmd": "sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libayatana-appindicator3-1",
+    "fullGuide": "Full install guide",
+    "releasesLink": "GitHub Releases",
+    "warningTitle": "Unsigned RC builds",
+    "warningBody": "Release candidates may be unsigned while signing credentials are being established. macOS users may need a one-time Gatekeeper bypass; Windows users may see SmartScreen when the installer runs.",
+    "gatekeeper": "Gatekeeper bypass guide",
+    "smartscreen": "SmartScreen bypass guide",
+    "linuxLibs": "Linux libraries guide"
+  },
+  "screenshots": {
+    "title": "Screenshots",
+    "description": "Real application output from release candidates.",
+    "prev": "Previous screenshot",
+    "next": "Next screenshot",
+    "openFullscreen": "Open fullscreen: {caption}",
+    "items": {
+      "dashboard": {
+        "caption": "Dashboard with live focus timers",
+        "alt": "LazyNevis Dashboard showing live focus, distraction, and idle timers"
+      },
+      "startSession": {
+        "caption": "Starting a focus session",
+        "alt": "LazyNevis session start controls on the Dashboard"
+      },
+      "history": {
+        "caption": "Session history list",
+        "alt": "LazyNevis History page with session list and date filters"
+      },
+      "historyDetail": {
+        "caption": "Session detail and timeline",
+        "alt": "LazyNevis session detail with visual timeline and charts"
+      },
+      "configGeneral": {
+        "caption": "General settings",
+        "alt": "LazyNevis Settings — general options and language"
+      },
+      "configRules": {
+        "caption": "Focus rules configuration",
+        "alt": "LazyNevis allowlist and blocklist focus rules"
+      },
+      "alertExample": {
+        "caption": "Distraction alert example",
+        "alt": "LazyNevis distraction alert notification"
+      },
+      "configAudio": {
+        "caption": "Audio alert settings",
+        "alt": "LazyNevis custom audio and alert sound configuration"
+      },
+      "configBreaks": {
+        "caption": "Break interval settings",
+        "alt": "LazyNevis break timer configuration"
+      },
+      "configShortcuts": {
+        "caption": "Global shortcuts",
+        "alt": "LazyNevis configurable global keyboard shortcuts"
+      },
+      "configPermissions": {
+        "caption": "Permissions status",
+        "alt": "LazyNevis macOS permissions overview"
+      },
+      "configData": {
+        "caption": "Data and privacy settings",
+        "alt": "LazyNevis local data storage settings"
+      }
+    }
+  },
+  "contribute": {
+    "title": "Contribute",
+    "description": "LazyNevis is open-source and MIT licensed. Help shape the future of privacy-first focus tooling.",
+    "viewRepo": "View repository",
+    "discussions": "Discussions",
+    "items": {
+      "issues": {
+        "title": "Open issues",
+        "description": "Report bugs or suggest features using the issue form.",
+        "label": "View issues"
+      },
+      "prs": {
+        "title": "Pull requests",
+        "description": "Read CONTRIBUTING.md and submit improvements to the main repo.",
+        "label": "CONTRIBUTING.md"
+      },
+      "discussions": {
+        "title": "Discussions",
+        "description": "Ask usage questions and share ideas with the community.",
+        "label": "Join Discussions"
+      },
+      "coc": {
+        "title": "Code of Conduct",
+        "description": "Help keep the community welcoming and respectful.",
+        "label": "CODE_OF_CONDUCT.md"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Common questions about privacy, platforms, and how LazyNevis works.",
+    "items": {
+      "block": {
+        "q": "Does LazyNevis block websites or apps?",
+        "a": "No. LazyNevis watches, classifies, and nudges — it never blocks an app or website. You always decide what to do when an alert fires."
+      },
+      "cloud": {
+        "q": "Is my data sent to the cloud?",
+        "a": "No. All session data, settings, and audio files stay in your OS application-data directory. There is no cloud sync, account, analytics, or telemetry."
+      },
+      "classification": {
+        "q": "How does focus classification work?",
+        "a": "During a session, LazyNevis polls the active window every second. A rule engine classifies each second as focused, distracted, or idle using your allowlist or blocklist rules. Browser tab titles can be matched separately from the host app."
+      },
+      "platforms": {
+        "q": "What platforms are supported?",
+        "a": "macOS 12+ (Apple Silicon ARM64), Windows 10+ (x64 and ARM64), and Linux x64 (AppImage, DEB, RPM). Download only from official GitHub Releases."
+      },
+      "telemetry": {
+        "q": "Does LazyNevis collect telemetry?",
+        "a": "No telemetry, analytics, or background update checks. The only network request is an explicit \"Check for updates\" button that reads public release metadata from GitHub."
+      },
+      "macosPerms": {
+        "q": "What permissions does macOS require?",
+        "a": "Accessibility (required) to read the active app name and window title — not keystrokes. Notifications are optional and only needed for native notification alerts."
+      },
+      "crash": {
+        "q": "What happens if the app crashes mid-session?",
+        "a": "Sessions are snapshotted every five seconds to local SQLite. On next launch, the session is recovered in a paused state so no time is lost."
+      },
+      "license": {
+        "q": "What license is LazyNevis under?",
+        "a": "LazyNevis is MIT licensed. You are free to use, modify, and distribute it according to the license terms."
+      },
+      "signed": {
+        "q": "Are release builds signed?",
+        "a": "RC builds may be unsigned while signing credentials are being established. See the Gatekeeper (macOS) and SmartScreen (Windows) troubleshooting guides for one-time bypass steps."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Privacy-first focus for macOS, Windows, and Linux.",
+    "mitLicense": "MIT License",
+    "links": "Links",
+    "privacy": "Privacy",
+    "buyCoffee": "Buy Me a Coffee",
+    "copyright": "All rights reserved.",
+    "landingAt": "Landing at"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" fill="none">
+  <rect width="320" height="180" fill="#0b0f10"/>
+  <text x="160" y="70" text-anchor="middle" fill="#e0e3e5" font-family="system-ui,sans-serif" font-size="28" font-weight="700">LazyNevis</text>
+  <text x="160" y="100" text-anchor="middle" fill="#ab8985" font-family="system-ui,sans-serif" font-size="14">Dashboard  placeholder</text>
+  <rect x="40" y="120" width="240" height="8" rx="4" fill="#323537"/>
+  <rect x="40" y="135" width="180" height="8" rx="4" fill="#d63031" opacity="0.6"/>
+  <rect x="40" y="150" width="120" height="8" rx="4" fill="#323537"/>
+</svg>
