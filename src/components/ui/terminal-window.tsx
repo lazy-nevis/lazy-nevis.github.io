@@ -183,7 +183,7 @@ export function PowerShellCommandLine({ command }: { command: string }) {
       <span className="text-[#dcdcaa]">(</span>
       <span className="text-[#569cd6]">iwr </span>
       <span className="text-[#ce9178]">
-        &apos;https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1&apos;
+        &apos;https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1&apos;
       </span>
       <span className="text-[#569cd6]"> -UseBasicParsing</span>
       <span className="text-[#dcdcaa]">).Content))</span>

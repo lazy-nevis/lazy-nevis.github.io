@@ -144,12 +144,12 @@
     "prereleaseLabel": "Pre-release / RC",
     "prereleaseNote": "Pre-releases are skipped unless you add the prerelease flag explicitly.",
     "commands": {
-      "macosStable": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh)",
-      "macosPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease",
-      "windowsStable": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))",
-      "windowsPrerelease": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease",
-      "linuxStable": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh)",
-      "linuxPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease"
+      "macosStable": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh)",
+      "macosPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease",
+      "windowsStable": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))",
+      "windowsPrerelease": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease",
+      "linuxStable": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh)",
+      "linuxPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease"
     },
     "terminalTitle": {
       "macos": "bash",

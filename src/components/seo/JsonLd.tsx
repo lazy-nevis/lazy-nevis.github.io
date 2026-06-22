@@ -23,6 +23,7 @@ const jsonLd = {
     '@type': 'Person',
     name: SITE.authorName,
     url: SITE.authorUrl,
+    sameAs: [SITE.authorUrl, SITE.portfolioUrl],
   },
   codeRepository: SITE.repoUrl,
   featureList: [

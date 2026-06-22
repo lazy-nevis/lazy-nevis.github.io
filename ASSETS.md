@@ -4,7 +4,7 @@ Instruções para produzir favicons, manifest icons, OG image e logo de header a
 
 ## Fontes oficiais
 
-No repositório **[SimStm/lazy-nevis](https://github.com/SimStm/lazy-nevis)** ou na pasta local `public/logo/`:
+No repositório **[lazy-nevis/lazy-nevis](https://github.com/lazy-nevis/lazy-nevis)** ou na pasta local `public/logo/`:
 
 ```bash
 cp public/logo/logo-light.png ./source-logo.png

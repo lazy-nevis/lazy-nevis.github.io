@@ -6,7 +6,9 @@ Visão geral para agentes de IA (Cursor, Claude Code, etc.) trabalhando neste re
 
 Landing page open-source do **LazyNevis**, publicada em [lazy-nevis.github.io](https://lazy-nevis.github.io). Repositório: `SimStm/lazy-nevis.github.io`.
 
-O app desktop vive em repositório separado: **[SimStm/lazy-nevis](https://github.com/SimStm/lazy-nevis)** (Tauri + Rust + React). Esta landing **não** contém código do app — apenas marketing, download links e documentação de apoio.
+O app desktop vive em repositório separado: **[lazy-nevis/lazy-nevis](https://github.com/lazy-nevis/lazy-nevis)** (Tauri + Rust + React). Esta landing **não** contém código do app — apenas marketing, download links e documentação de apoio.
+
+Autor: [SimStm](https://github.com/SimStm) · portfolio [SIMSDEV](https://sims.dev.br).
 
 ## Stack
 
@@ -70,10 +72,10 @@ Deploy: push na branch `main` dispara GitHub Actions.
 
 | Recurso | Origem |
 |---------|--------|
-| README / features / FAQ | `SimStm/lazy-nevis` README |
+| README / features / FAQ | `lazy-nevis/lazy-nevis` README |
 | Screenshots | `docs/screenshots/` no repo principal |
 | Logo / app icon | `src/assets/brand/` no repo principal |
-| Releases / download | `github.com/SimStm/lazy-nevis/releases` |
+| Releases / download | `github.com/lazy-nevis/lazy-nevis/releases` |
 | Install guides | `docs/install/{macos,windows,linux}.md` |
 
 ## Protótipos de referência

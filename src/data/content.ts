@@ -1,17 +1,19 @@
 export const SITE = {
   name: 'LazyNevis',
   url: 'https://lazy-nevis.github.io',
-  repoUrl: 'https://github.com/SimStm/lazy-nevis',
-  releasesUrl: 'https://github.com/SimStm/lazy-nevis/releases',
-  discussionsUrl: 'https://github.com/SimStm/lazy-nevis/discussions',
+  repoUrl: 'https://github.com/lazy-nevis/lazy-nevis',
+  releasesUrl: 'https://github.com/lazy-nevis/lazy-nevis/releases',
+  discussionsUrl: 'https://github.com/lazy-nevis/lazy-nevis/discussions',
   contributingUrl:
-    'https://github.com/SimStm/lazy-nevis/blob/main/CONTRIBUTING.md',
-  cocUrl: 'https://github.com/SimStm/lazy-nevis/blob/main/CODE_OF_CONDUCT.md',
-  licenseUrl: 'https://github.com/SimStm/lazy-nevis/blob/main/LICENSE',
-  privacyUrl: 'https://github.com/SimStm/lazy-nevis/blob/main/PRIVACY.md',
+    'https://github.com/lazy-nevis/lazy-nevis/blob/main/CONTRIBUTING.md',
+  cocUrl: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/CODE_OF_CONDUCT.md',
+  licenseUrl: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/LICENSE',
+  privacyUrl: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/PRIVACY.md',
   buyMeACoffeeUrl: 'https://www.buymeacoffee.com/simstm',
   authorName: 'Lucas (SimStm)',
   authorUrl: 'https://github.com/SimStm',
+  portfolioName: 'SIMSDEV',
+  portfolioUrl: 'https://sims.dev.br',
 } as const
 
 export const NAV_HREFS = [
@@ -62,11 +64,11 @@ export const INSTALL_PLATFORMS: InstallPlatform[] = [
 
 export const INSTALL_GUIDES: Record<InstallPlatform, string> = {
   macos:
-    'https://github.com/SimStm/lazy-nevis/blob/main/docs/install/macos.md',
+    'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/install/macos.md',
   windows:
-    'https://github.com/SimStm/lazy-nevis/blob/main/docs/install/windows.md',
+    'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/install/windows.md',
   linux:
-    'https://github.com/SimStm/lazy-nevis/blob/main/docs/install/linux.md',
+    'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/install/linux.md',
 }
 
 export const INSTALL_TROUBLESHOOT: Record<
@@ -74,15 +76,15 @@ export const INSTALL_TROUBLESHOOT: Record<
   { url: string; labelKey: string }
 > = {
   macos: {
-    url: 'https://github.com/SimStm/lazy-nevis/blob/main/docs/troubleshooting/gatekeeper.md',
+    url: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/troubleshooting/gatekeeper.md',
     labelKey: 'gatekeeper',
   },
   windows: {
-    url: 'https://github.com/SimStm/lazy-nevis/blob/main/docs/troubleshooting/smartscreen.md',
+    url: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/troubleshooting/smartscreen.md',
     labelKey: 'smartscreen',
   },
   linux: {
-    url: 'https://github.com/SimStm/lazy-nevis/blob/main/docs/troubleshooting/linux-libraries.md',
+    url: 'https://github.com/lazy-nevis/lazy-nevis/blob/main/docs/troubleshooting/linux-libraries.md',
     labelKey: 'linuxLibs',
   },
 }

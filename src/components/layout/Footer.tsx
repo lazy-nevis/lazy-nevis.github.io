@@ -62,6 +62,14 @@ export function Footer() {
               >
                 {t('privacy')}
               </a>
+              <a
+                href={SITE.portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-body-md text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              >
+                {SITE.portfolioName}
+              </a>
             </div>
           </div>
 
@@ -88,6 +96,15 @@ export function Footer() {
               className="text-primary hover:underline cursor-pointer"
             >
               {SITE.authorName}
+            </a>
+            {' · '}
+            <a
+              href={SITE.portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline cursor-pointer"
+            >
+              {SITE.portfolioName}
             </a>
             . {t('copyright')}
           </p>

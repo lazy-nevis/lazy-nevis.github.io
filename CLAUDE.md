@@ -30,7 +30,7 @@ Abra `http://localhost:5173`. Teste breakpoints ~375px, 768px, 1280px.
 
 ## Assets do logo oficial
 
-Origem: `SimStm/lazy-nevis` → `src/assets/brand/logo-light.png`, `app-icon.png`.
+Origem: `lazy-nevis/lazy-nevis` → `src/assets/brand/logo-light.png`, `app-icon.png`.
 
 Após copiar, rode o script de geração (ver `ASSETS.md`) e substitua `src/assets/brand/logo.svg` se tiver PNG/SVG oficial.
 

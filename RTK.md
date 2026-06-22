@@ -42,7 +42,7 @@ Swiper no mobile da seção Features: carrossel horizontal quando grid 4 colunas
 
 ## Conteúdo e SEO
 
-- Textos derivados do README do repo principal (`SimStm/lazy-nevis`).
+- Textos derivados do README do repo principal (`lazy-nevis/lazy-nevis`).
 - JSON-LD `SoftwareApplication` em `JsonLd.tsx`.
 - HTML semântico: `<main>`, `<section>`, um `<h1>` no Hero.
 - GEO: parágrafos auto-contidos em Sobre/FAQ para citação por LLMs.

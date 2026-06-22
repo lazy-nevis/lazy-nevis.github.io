@@ -1,8 +1,10 @@
 # LazyNevis Landing Page
 
-Marketing site for [LazyNevis](https://github.com/SimStm/lazy-nevis) — privacy-first desktop focus tool.
+Marketing site for [LazyNevis](https://github.com/lazy-nevis/lazy-nevis) — privacy-first desktop focus tool.
 
 **Live:** [lazy-nevis.github.io](https://lazy-nevis.github.io)
+
+**Author:** [Lucas (SimStm)](https://github.com/SimStm) · [SIMSDEV](https://sims.dev.br)
 
 ## Stack
 
@@ -35,5 +37,6 @@ Push to `main` deploys via GitHub Actions.
 
 ## Related
 
-- App repository: [SimStm/lazy-nevis](https://github.com/SimStm/lazy-nevis)
-- Releases: [GitHub Releases](https://github.com/SimStm/lazy-nevis/releases)
+- App repository: [lazy-nevis/lazy-nevis](https://github.com/lazy-nevis/lazy-nevis)
+- Releases: [GitHub Releases](https://github.com/lazy-nevis/lazy-nevis/releases)
+- Author: [SimStm](https://github.com/SimStm) · [SIMSDEV](https://sims.dev.br)
