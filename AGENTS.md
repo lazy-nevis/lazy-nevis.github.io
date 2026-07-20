@@ -84,6 +84,27 @@ Deploy: push na branch `main` dispara GitHub Actions.
 
 ---
 
+## Seção Instalar (helpers + passos)
+
+O browser **não pode** abrir Terminal/PowerShell nem colar comandos. O fluxo oficial da landing é:
+
+1. CTA **Baixar instalador** → Blob gerado em `src/lib/install-helpers.ts` (não há arquivos estáticos em `public/install/`).
+2. Passos numerados por plataforma em `install.steps.*` (i18n).
+3. Opção avançada recolhida: copiar comando (`getInstallCommand` em `src/data/content.ts`).
+
+| Plataforma | Arquivo gerado | Comportamento |
+|---|---|---|
+| macOS | `LazyNevis-install.command` | Duplo clique abre Terminal e roda `install.sh` |
+| Windows | `LazyNevis-install.cmd` | Duplo clique abre **CMD** (janela preta, esperado); o `.cmd` lança PowerShell com o `install.ps1` oficial |
+| Linux | `LazyNevis-install.sh` | Detecta a família da distro (`/etc/os-release` + `ID_LIKE` / package manager), instala libs (apt/dnf/yum/pacman/zypper) e só então roda `install.sh` |
+
+- URLs dos scripts oficiais: `INSTALL_SCRIPT_URLS` em `src/data/content.ts` (única fonte — UI + helpers).
+- UI: `src/components/sections/InstallSection.tsx`.
+- **Não** tentar deep-link `x-terminal://` ou similar.
+- Copy curto, imperativo, sem jargão; troubleshooting só da plataforma ativa.
+
+---
+
 ## Atualizar features do site
 
 Quando o app ganha capacidades novas (ex.: checklist, tray panel, compact mode):

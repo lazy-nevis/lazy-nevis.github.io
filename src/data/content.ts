@@ -94,6 +94,30 @@ export const INSTALL_TROUBLESHOOT: Record<
   },
 }
 
+/** Official install scripts from the app repo (single source for UI + helpers). */
+export const INSTALL_SCRIPT_URLS = {
+  sh: 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh',
+  ps1: 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1',
+} as const
+
+export type InstallChannel = 'stable' | 'prerelease'
+
+export function getInstallCommand(
+  platform: InstallPlatform,
+  channel: InstallChannel,
+): string {
+  const prerelease = channel === 'prerelease'
+  if (platform === 'windows') {
+    const base = `& ([scriptblock]::Create((iwr '${INSTALL_SCRIPT_URLS.ps1}' -UseBasicParsing).Content))`
+    return prerelease ? `${base} -Prerelease` : base
+  }
+  const base = `bash <(curl -fL ${INSTALL_SCRIPT_URLS.sh})`
+  return prerelease ? `${base} --prerelease` : base
+}
+
+export const LINUX_DEPS_CMD =
+  'sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libayatana-appindicator3-1'
+
 /**
  * Active capture set from the app repo:
  * `lazy-nevis/scripts/screenshots/out/<version>-<platform>/`

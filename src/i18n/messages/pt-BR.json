@@ -131,8 +131,8 @@
   },
   "install": {
     "title": "Download e instalação",
-    "description": "Instale pelo script oficial — ele baixa o release mais recente, verifica o checksum SHA-256 e configura o LazyNevis automaticamente.",
-    "detectedHint": "Detectamos seu sistema — exibindo a aba recomendada.",
+    "description": "Três passos curtos. Sem conta. Sem loja de apps. Escolha seu sistema e baixe o instalador.",
+    "detectedHint": "Selecionamos seu sistema — troque a aba se estiver errado.",
     "tabs": {
       "macos": "macOS",
       "windows": "Windows",
@@ -144,21 +144,23 @@
       "linux": "Terminal"
     },
     "requirements": {
-      "macos": "macOS 12+ · Apple Silicon (ARM64). Macs Intel (x64) não são suportados atualmente.",
-      "windows": "Windows 10+ · x64 ou ARM64. Abra PowerShell ou PowerShell 7 (não o Prompt de Comando).",
-      "linux": "x64 (amd64) · WebKit2GTK e biblioteca de bandeja necessários. ARM64 não é suportado no Linux."
+      "macos": "Precisa de macOS 12+ em Apple Silicon (M1/M2/M3…). Macs Intel ainda não são suportados.",
+      "windows": "Precisa de Windows 10 ou 11 (x64 ou ARM64).",
+      "linux": "Precisa de Linux x64 (amd64). ARM64 ainda não é suportado."
     },
+    "channel": {
+      "label": "Qual versão?",
+      "stable": "Estável",
+      "prerelease": "Pre-release / RC",
+      "prereleaseHint": "Recursos mais novos, menos polidos. Builds podem não ser assinadas — o sistema pode pedir uma liberação única."
+    },
+    "downloadHelper": "Baixar instalador",
+    "downloadStarted": "Download iniciado — veja a pasta Downloads.",
+    "advancedCopy": "Prefiro copiar o comando",
+    "advancedHint": "Abra o {shell}, cole e pressione Enter.",
     "stableLabel": "Release estável",
     "prereleaseLabel": "Pre-release / RC",
     "prereleaseNote": "Pre-releases são ignorados a menos que você adicione a flag de prerelease explicitamente.",
-    "commands": {
-      "macosStable": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh)",
-      "macosPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease",
-      "windowsStable": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))",
-      "windowsPrerelease": "& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease",
-      "linuxStable": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh)",
-      "linuxPrerelease": "bash <(curl -fL https://raw.githubusercontent.com/lazy-nevis/lazy-nevis/refs/heads/main/scripts/install.sh) --prerelease"
-    },
     "terminalTitle": {
       "macos": "bash",
       "linux": "lazynevis@linux: ~",
@@ -170,20 +172,45 @@
     "terminalPrereleaseCommentGeneric": "# Instalando pre-release / RC...",
     "terminalReadyComment": "# LazyNevis pronto.",
     "loadingReleases": "Verificando releases no GitHub…",
-    "releasesError": "Não foi possível carregar as releases. Você ainda pode usar os comandos abaixo ou visitar o GitHub Releases.",
+    "releasesError": "Não foi possível carregar as releases. Você ainda pode baixar o instalador ou visitar o GitHub Releases.",
     "noReleases": "Nenhuma release instalável disponível no momento. Confira o GitHub Releases para novidades.",
     "latestVersion": "Mais recente: {version}",
     "stableVersion": "Estável: {version}",
     "prereleaseVersion": "Pre-release: {version}",
-    "linuxDeps": "No Debian/Ubuntu, instale as dependências primeiro:",
+    "linuxHelperNote": "O instalador Linux detecta sua distro (Ubuntu, Debian, Fedora, Arch e outras), instala as bibliotecas necessárias (pede sua senha) e depois baixa o LazyNevis.",
+    "linuxDepsTitle": "Antes de começar (Debian / Ubuntu)",
+    "linuxDeps": "Instale estas bibliotecas uma vez e continue:",
     "linuxDepsCmd": "sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libayatana-appindicator3-1",
+    "copyDeps": "Copiar comando das dependências",
     "fullGuide": "Guia completo de instalação",
     "releasesLink": "GitHub Releases",
-    "warningTitle": "Builds RC não assinadas",
-    "warningBody": "Candidatos a release podem não ser assinados enquanto as credenciais são configuradas. No macOS pode ser necessário liberar o Gatekeeper uma vez; no Windows o SmartScreen pode aparecer ao executar o instalador.",
-    "gatekeeper": "Guia Gatekeeper",
-    "smartscreen": "Guia SmartScreen",
-    "linuxLibs": "Guia de bibliotecas Linux"
+    "gatekeeper": "Como liberar no macOS",
+    "smartscreen": "Como liberar no Windows",
+    "linuxLibs": "Guia de bibliotecas Linux",
+    "steps": {
+      "heading": "Faça isto em seguida",
+      "macos": {
+        "1": "Clique em Baixar instalador. O arquivo LazyNevis-install.command aparece em Downloads.",
+        "2": "Dê dois cliques nesse arquivo. O Terminal abre e conclui a instalação.",
+        "2Blocked": "Se o macOS disser que não pode abrir: clique com o botão direito → Abrir → Abrir de novo.",
+        "3": "Se o Gatekeeper ainda bloquear o app depois, siga o guia de liberação (uma vez só).",
+        "4": "Abra o LazyNevis em Aplicativos (ou no Spotlight)."
+      },
+      "windows": {
+        "1": "Clique em Baixar instalador. O arquivo LazyNevis-install.cmd aparece em Downloads.",
+        "2": "Dê dois cliques nesse arquivo. Uma janela preta abre — é normal. Espere até aparecer Done.",
+        "2Blocked": "Se o SmartScreen aparecer: Mais informações → Executar assim mesmo.",
+        "3": "Se o Windows ainda bloquear o app depois, siga o guia de liberação (uma vez só).",
+        "4": "Abra o LazyNevis no menu Iniciar."
+      },
+      "linux": {
+        "1": "Clique em Baixar instalador. O arquivo LazyNevis-install.sh aparece em Downloads.",
+        "2": "Abra um terminal nessa pasta e rode: bash LazyNevis-install.sh — ou dê dois cliques se o gerenciador permitir. Digite a senha quando pedir (bibliotecas).",
+        "2Blocked": "Se a instalação de bibliotecas falhar, abra o guia de bibliotecas Linux da sua distro.",
+        "3": "Precisa de mais ajuda com bibliotecas? Abra o guia de bibliotecas Linux.",
+        "4": "Abra o LazyNevis pelo menu de apps ou pelo caminho que o instalador mostrar."
+      }
+    }
   },
   "screenshots": {
     "title": "Screenshots",
