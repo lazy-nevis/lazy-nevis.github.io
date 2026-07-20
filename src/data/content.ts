@@ -33,7 +33,9 @@ export const FEATURE_KEYS = [
   'alerts',
   'audio',
   'breaks',
+  'checklist',
   'history',
+  'modes',
   'customization',
   'privacy',
 ] as const
@@ -44,7 +46,9 @@ export const FEATURE_ICONS: Record<(typeof FEATURE_KEYS)[number], string> = {
   alerts: 'Bell',
   audio: 'Volume2',
   breaks: 'Coffee',
+  checklist: 'Checklist',
   history: 'History',
+  modes: 'Layout',
   customization: 'Settings',
   privacy: 'Shield',
 }
@@ -90,85 +94,88 @@ export const INSTALL_TROUBLESHOOT: Record<
   },
 }
 
+/**
+ * Active capture set from the app repo:
+ * `lazy-nevis/scripts/screenshots/out/<version>-<platform>/`
+ * Copied into `public/screenshots/app/<version>-<platform>/` as WebP.
+ * Keep older version folders for history; only change this constant + SCREENSHOTS
+ * when promoting a new set.
+ */
+export const SCREENSHOT_SET = '0.10.0-rc.5-macos' as const
+
 export type ScreenshotItem = {
+  /** i18n key under `screenshots.items.*` */
   id: string
   src: string
   width: number
   height: number
 }
 
+function screenshotSrc(file: string): string {
+  return `/screenshots/app/${SCREENSHOT_SET}/${file}.webp`
+}
+
+/** Curated gallery (dark theme preferred to match the landing). Full set lives on disk. */
 export const SCREENSHOTS: ScreenshotItem[] = [
   {
-    id: 'dashboard',
-    src: '/screenshots/webp/1-dashboard.webp',
-    width: 1012,
-    height: 792,
+    id: 'dashboardRunning',
+    src: screenshotSrc('dashboard-running-dark'),
+    width: 1212,
+    height: 932,
   },
   {
-    id: 'startSession',
-    src: '/screenshots/webp/2-start-session.webp',
-    width: 1012,
-    height: 792,
+    id: 'dashboardIdle',
+    src: screenshotSrc('dashboard-idle-dark'),
+    width: 1212,
+    height: 932,
   },
   {
     id: 'history',
-    src: '/screenshots/webp/3-session-history.webp',
-    width: 1012,
-    height: 792,
+    src: screenshotSrc('history-dark'),
+    width: 1212,
+    height: 932,
   },
   {
     id: 'historyDetail',
-    src: '/screenshots/webp/4-session-history-details.webp',
-    width: 1012,
-    height: 792,
+    src: screenshotSrc('history-detail-dark'),
+    width: 1212,
+    height: 932,
   },
   {
-    id: 'configGeneral',
-    src: '/screenshots/webp/5-config-general.webp',
-    width: 1012,
-    height: 792,
+    id: 'settings',
+    src: screenshotSrc('settings-dark'),
+    width: 1212,
+    height: 932,
   },
   {
-    id: 'configRules',
-    src: '/screenshots/webp/6-config-rules.webp',
-    width: 1012,
-    height: 792,
+    id: 'checklist',
+    src: screenshotSrc('checklist-dark'),
+    width: 1212,
+    height: 932,
   },
   {
-    id: 'alertExample',
-    src: '/screenshots/webp/7-alert-example.webp',
-    width: 1012,
-    height: 792,
+    id: 'fullscreenAlert',
+    src: screenshotSrc('fullscreen-alert'),
+    width: 1146,
+    height: 826,
   },
   {
-    id: 'configAudio',
-    src: '/screenshots/webp/8-config-audio.webp',
-    width: 1012,
-    height: 792,
+    id: 'compactRunning',
+    src: screenshotSrc('compact-running-dark'),
+    width: 492,
+    height: 972,
   },
   {
-    id: 'configBreaks',
-    src: '/screenshots/webp/9-config-breaks.webp',
-    width: 1012,
-    height: 792,
+    id: 'trayRunning',
+    src: screenshotSrc('tray-running-dark'),
+    width: 386,
+    height: 526,
   },
   {
-    id: 'configShortcuts',
-    src: '/screenshots/webp/10-config-shortcuts.webp',
-    width: 1012,
-    height: 792,
-  },
-  {
-    id: 'configPermissions',
-    src: '/screenshots/webp/11-config-permissions.webp',
-    width: 1012,
-    height: 792,
-  },
-  {
-    id: 'configData',
-    src: '/screenshots/webp/12-config-data.webp',
-    width: 1012,
-    height: 792,
+    id: 'about',
+    src: screenshotSrc('about-dark'),
+    width: 1212,
+    height: 932,
   },
 ]
 

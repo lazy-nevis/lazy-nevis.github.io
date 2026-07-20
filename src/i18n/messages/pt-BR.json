@@ -77,9 +77,17 @@
         "title": "Pausas",
         "description": "Intervalo de pausa configurável com base no tempo focado, com contagem regressiva e histórico por sessão."
       },
+      "checklist": {
+        "title": "Checklist diária",
+        "description": "Planeje o dia com tags, prazos e período de desfazer. Vincule um item a uma sessão de foco em um clique."
+      },
       "history": {
         "title": "Histórico e exportação",
-        "description": "Timelines visuais, gráficos e exportação em JSON ou CSV para qualquer intervalo de datas."
+        "description": "Relatórios de sessão com timelines, apps principais, gráficos de foco e exportação em JSON ou CSV."
+      },
+      "modes": {
+        "title": "Compacto e bandeja",
+        "description": "Janela compacta e painel rápido na bandeja para iniciar, pausar, parar e ver a checklist sem sair do fluxo."
       },
       "customization": {
         "title": "Personalização",
@@ -184,53 +192,45 @@
     "next": "Próximo screenshot",
     "openFullscreen": "Abrir em tela cheia: {caption}",
     "items": {
-      "dashboard": {
-        "caption": "Dashboard com timers de foco ao vivo",
-        "alt": "Dashboard do LazyNevis com timers de foco, distração e ociosidade"
+      "dashboardRunning": {
+        "caption": "Dashboard com sessão de foco ativa",
+        "alt": "Dashboard do LazyNevis com timers de foco, distração e ociosidade durante uma sessão"
       },
-      "startSession": {
-        "caption": "Iniciando uma sessão de foco",
-        "alt": "Controles de início de sessão no Dashboard do LazyNevis"
+      "dashboardIdle": {
+        "caption": "Dashboard pronto para iniciar",
+        "alt": "Dashboard do LazyNevis sem sessão ativa e com controles para começar"
       },
       "history": {
-        "caption": "Lista de histórico de sessões",
-        "alt": "Página de Histórico do LazyNevis com lista e filtros por data"
+        "caption": "Histórico de sessões e gráficos",
+        "alt": "Página de Histórico do LazyNevis com sessões e gráficos de visão geral"
       },
       "historyDetail": {
-        "caption": "Detalhe da sessão e timeline",
-        "alt": "Detalhe de sessão com timeline visual e gráficos"
+        "caption": "Detalhe do relatório de sessão",
+        "alt": "Relatório de sessão do LazyNevis com timeline, apps principais e estatísticas de foco"
       },
-      "configGeneral": {
-        "caption": "Configurações gerais",
-        "alt": "Configurações gerais e idioma do LazyNevis"
+      "settings": {
+        "caption": "Regras de foco nas Configurações",
+        "alt": "Configurações do LazyNevis com regras de allowlist e blocklist"
       },
-      "configRules": {
-        "caption": "Regras de foco",
-        "alt": "Configuração de regras allowlist e blocklist"
+      "checklist": {
+        "caption": "Checklist diária",
+        "alt": "Página de Checklist do LazyNevis com itens abertos, tags e histórico"
       },
-      "alertExample": {
-        "caption": "Exemplo de alerta de distração",
-        "alt": "Notificação de alerta de distração do LazyNevis"
+      "fullscreenAlert": {
+        "caption": "Overlay de distração em tela cheia",
+        "alt": "Overlay em tela cheia do LazyNevis quando o limite de distração é ultrapassado"
       },
-      "configAudio": {
-        "caption": "Configurações de áudio",
-        "alt": "Configuração de sons de alerta e áudio personalizado"
+      "compactRunning": {
+        "caption": "Modo compacto durante a sessão",
+        "alt": "Janela compacta do LazyNevis com uma sessão de foco ativa"
       },
-      "configBreaks": {
-        "caption": "Configuração de pausas",
-        "alt": "Intervalo e timer de pausas no LazyNevis"
+      "trayRunning": {
+        "caption": "Painel rápido da bandeja",
+        "alt": "Painel rápido da bandeja do LazyNevis com timers e controles da sessão"
       },
-      "configShortcuts": {
-        "caption": "Atalhos globais",
-        "alt": "Atalhos de teclado globais configuráveis"
-      },
-      "configPermissions": {
-        "caption": "Status de permissões",
-        "alt": "Visão geral de permissões no macOS"
-      },
-      "configData": {
-        "caption": "Dados e privacidade",
-        "alt": "Configurações de armazenamento local de dados"
+      "about": {
+        "caption": "Sobre e atualizações",
+        "alt": "Página Sobre do LazyNevis com versão e verificação manual de atualizações"
       }
     }
   },

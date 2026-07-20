@@ -30,6 +30,8 @@ const jsonLd = {
     'Privacy-first local focus tracking',
     'Allowlist and blocklist window classification',
     'Native notifications and fullscreen overlay alerts',
+    'Daily checklist linked to focus sessions',
+    'Compact mode and tray quick panel',
     'Session history with JSON and CSV export',
     'No telemetry or cloud sync',
   ],

@@ -62,12 +62,14 @@ GitHub Actions em `push main` → `npm ci` + `npm run build` → `dist/` → Pag
 
 ## Assets
 
-Placeholders SVG até cópia de `docs/screenshots` e `src/assets/brand/` do repo principal. Geração de favicons documentada em `ASSETS.md` (sharp CLI).
+- Favicons / OG: `ASSETS.md`.
+- Screenshots do app: sets versionados em `public/screenshots/app/<version>-<platform>/` (WebP + `manifest.json`), apontados por `SCREENSHOT_SET` em `src/data/content.ts`.
+- Pastas `webp/`, `mac/`, `windows/` e sets antigos em `app/` permanecem para histórico — novos releases **adicionam** pasta, não substituem.
+- Fonte de captura: `lazy-nevis/scripts/screenshots/out/<version>-<platform>/`.
 
 ## Não implementado (deliberado)
 
-- i18n na landing (app suporta EN/pt-BR; landing em EN por alinhamento ao README principal)
-- Light mode (design system dark-only; app tem tema claro internamente)
+- Light mode na landing (design system dark-only; app tem tema claro internamente — galeria prefere shots dark)
 - Analytics / telemetry na landing (coerente com marca privacy-first)
 
 ## Histórico
@@ -77,3 +79,4 @@ Placeholders SVG até cópia de `docs/screenshots` e `src/assets/brand/` do repo
 | 2025-06 | Mesclagem layout-1 + layout-2 → `DESIGN.md` unificado |
 | 2025-06 | SPA React com seções ordenadas conforme brief |
 | 2025-06 | Mesh Canvas 2D substitui shaders WebGL dos protótipos |
+| 2026-07 | Screenshots versionados em `public/screenshots/app/<version>-<platform>/`; features checklist + compact/tray |

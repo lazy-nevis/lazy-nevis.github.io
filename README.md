@@ -30,10 +30,12 @@ Push to `main` deploys via GitHub Actions.
 | File | Purpose |
 |------|---------|
 | [DESIGN.md](./DESIGN.md) | Design tokens |
-| [AGENTS.md](./AGENTS.md) | Guide for AI agents |
+| [AGENTS.md](./AGENTS.md) | Guide for AI agents (incl. features + screenshot updates) |
 | [CLAUDE.md](./CLAUDE.md) | Claude Code specifics |
 | [RTK.md](./RTK.md) | Technical decisions log |
-| [ASSETS.md](./ASSETS.md) | Favicon/OG generation |
+| [ASSETS.md](./ASSETS.md) | Favicon/OG + screenshot WebP pipeline |
+
+App screenshot sets live under `public/screenshots/app/<version>-<platform>/` (WebP). The active set is `SCREENSHOT_SET` in `src/data/content.ts`.
 
 ## Related
 

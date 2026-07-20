@@ -77,9 +77,17 @@
         "title": "Breaks",
         "description": "Configurable break intervals based on focused time, with countdown and per-session history."
       },
+      "checklist": {
+        "title": "Daily checklist",
+        "description": "Plan the day with tags, due dates, and undo grace. Link an item to a focus session in one click."
+      },
       "history": {
         "title": "History & export",
-        "description": "Visual timelines, charts, and export to JSON or CSV for any date range."
+        "description": "Session reports with timelines, top apps, focus charts, and export to JSON or CSV."
+      },
+      "modes": {
+        "title": "Compact & tray",
+        "description": "A slim compact window and a tray quick panel for start, pause, stop, and checklist without leaving your flow."
       },
       "customization": {
         "title": "Customization",
@@ -184,53 +192,45 @@
     "next": "Next screenshot",
     "openFullscreen": "Open fullscreen: {caption}",
     "items": {
-      "dashboard": {
-        "caption": "Dashboard with live focus timers",
-        "alt": "LazyNevis Dashboard showing live focus, distraction, and idle timers"
+      "dashboardRunning": {
+        "caption": "Dashboard with an active focus session",
+        "alt": "LazyNevis Dashboard showing live focus, distraction, and idle timers during a session"
       },
-      "startSession": {
-        "caption": "Starting a focus session",
-        "alt": "LazyNevis session start controls on the Dashboard"
+      "dashboardIdle": {
+        "caption": "Dashboard ready to start",
+        "alt": "LazyNevis Dashboard with no active session and start controls"
       },
       "history": {
-        "caption": "Session history list",
-        "alt": "LazyNevis History page with session list and date filters"
+        "caption": "Session history and charts",
+        "alt": "LazyNevis History page with seeded sessions and overview charts"
       },
       "historyDetail": {
-        "caption": "Session detail and timeline",
-        "alt": "LazyNevis session detail with visual timeline and charts"
+        "caption": "Session report detail",
+        "alt": "LazyNevis session report with timeline, top apps, and focus stats"
       },
-      "configGeneral": {
-        "caption": "General settings",
-        "alt": "LazyNevis Settings — general options and language"
+      "settings": {
+        "caption": "Focus rules in Settings",
+        "alt": "LazyNevis Settings showing allowlist and blocklist focus rules"
       },
-      "configRules": {
-        "caption": "Focus rules configuration",
-        "alt": "LazyNevis allowlist and blocklist focus rules"
+      "checklist": {
+        "caption": "Daily checklist",
+        "alt": "LazyNevis Checklist page with open items, tags, and history"
       },
-      "alertExample": {
-        "caption": "Distraction alert example",
-        "alt": "LazyNevis distraction alert notification"
+      "fullscreenAlert": {
+        "caption": "Fullscreen distraction overlay",
+        "alt": "LazyNevis fullscreen overlay alert shown when distraction threshold is crossed"
       },
-      "configAudio": {
-        "caption": "Audio alert settings",
-        "alt": "LazyNevis custom audio and alert sound configuration"
+      "compactRunning": {
+        "caption": "Compact mode during a session",
+        "alt": "LazyNevis compact window with an active focus session"
       },
-      "configBreaks": {
-        "caption": "Break interval settings",
-        "alt": "LazyNevis break timer configuration"
+      "trayRunning": {
+        "caption": "Tray quick panel",
+        "alt": "LazyNevis tray quick panel with session timers and controls"
       },
-      "configShortcuts": {
-        "caption": "Global shortcuts",
-        "alt": "LazyNevis configurable global keyboard shortcuts"
-      },
-      "configPermissions": {
-        "caption": "Permissions status",
-        "alt": "LazyNevis macOS permissions overview"
-      },
-      "configData": {
-        "caption": "Data and privacy settings",
-        "alt": "LazyNevis local data storage settings"
+      "about": {
+        "caption": "About and updates",
+        "alt": "LazyNevis About page with version info and manual update check"
       }
     }
   },

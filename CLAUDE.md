@@ -34,6 +34,15 @@ Origem: `lazy-nevis/lazy-nevis` → `src/assets/brand/logo-light.png`, `app-icon
 
 Após copiar, rode o script de geração (ver `ASSETS.md`) e substitua `src/assets/brand/logo.svg` se tiver PNG/SVG oficial.
 
+## Features e screenshots do app
+
+Ao atualizar marketing a partir de um novo RC:
+
+1. Features: `FEATURE_KEYS` em `src/data/content.ts` + i18n `features.items.*` (en-US e pt-BR) + `JsonLd.tsx`.
+2. Screenshots: copiar set de `lazy-nevis/scripts/screenshots/out/<version>-<platform>/` para `public/screenshots/app/<version>-<platform>/` como WebP; **não** apagar pastas antigas; atualizar `SCREENSHOT_SET` + `SCREENSHOTS` + captions i18n.
+
+Procedimento detalhado: `AGENTS.md` (seções **Atualizar features** e **Atualizar screenshots**).
+
 ## Troubleshooting comum
 
 | Problema | Solução |

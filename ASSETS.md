@@ -119,10 +119,46 @@ import logo from '@/assets/brand/logo-header.png'
 
 Substitua referências a `logo.svg` em `Header.tsx`, `Footer.tsx`, `Hero.tsx` se usar PNG oficial.
 
-## Screenshots reais
+## Screenshots do app (sets versionados)
 
-```bash
-cp /tmp/lazy-nevis/docs/screenshots/*.png public/screenshots/
+Fonte: `lazy-nevis/scripts/screenshots/out/<version>-<platform>/` (ver `manifest.json` e `docs/screenshots/README.md` no app).
+
+### Destino neste repo
+
+```text
+public/screenshots/app/<version>-<platform>/
+  manifest.json
+  *.webp
 ```
 
-Atualize `SCREENSHOTS` em `src/data/content.ts` com paths, dimensões e `alt` descritivos.
+- **Não** sobrescrever `public/screenshots/webp/`, `mac/`, `windows/` nem pastas de versão anteriores.
+- Manter o nome da versão no path público (histórico).
+- Commitar só WebP + manifest (PNGs ficam no repo do app).
+
+### Converter PNG → WebP
+
+```bash
+VERSION_DIR="0.10.0-rc.5-macos"
+APP_OUT="../lazy-nevis/scripts/screenshots/out/${VERSION_DIR}"
+DEST="public/screenshots/app/${VERSION_DIR}"
+
+mkdir -p "$DEST"
+cp "$APP_OUT/manifest.json" "$DEST/"
+
+# Preferido: cwebp
+for f in "$APP_OUT"/*.png; do
+  base=$(basename "$f" .png)
+  cwebp -q 82 "$f" -o "$DEST/${base}.webp"
+done
+
+# Alternativa ImageMagick / GraphicsMagick:
+# magick convert "$f" -quality 82 "$DEST/${base}.webp"
+```
+
+### Ligar no site
+
+1. `SCREENSHOT_SET` + array `SCREENSHOTS` em `src/data/content.ts`
+2. Captions/alts em `src/i18n/messages/{en-US,pt-BR}.json` → `screenshots.items.*`
+3. Dimensões = tamanho real do arquivo WebP (`sips` / `identify`)
+
+Fluxo completo para agentes: seção **Atualizar screenshots do app** em `AGENTS.md`.
