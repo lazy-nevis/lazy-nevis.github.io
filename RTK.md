@@ -16,29 +16,17 @@ Tokens do `DESIGN.md` mapeiam diretamente para CSS variables em um único arquiv
 
 Controle total dos primitivos, sem dependência de versão publicada. Componentes em `src/components/ui/` consomem tokens locais (`glass-panel`, `btn-gradient`).
 
-## Hero — mesh gradient
+## Hero — mockup + brilho CSS
 
-### Canvas 2D vs WebGL (protótipos)
+O Hero deixou de usar Canvas/mesh: agora é um layout centralizado com `hero-glow` (gradientes radiais em CSS) e um mockup real do app (`AppShot`). Vantagens: zero JS de animação, sem custo em mobile, `prefers-reduced-motion` respeitado só com CSS (`animate-drift`).
 
-Protótipos usavam WebGL (hex grid + noise). Escolhemos **Canvas 2D com radial gradients animados** porque:
-
-- Brief pedia Canvas API (evitar Three.js)
-- Menor custo em mobile (menos blobs em `<768px`)
-- Degrada graciosamente com `prefers-reduced-motion` (frame estático)
-- Pausa em `document.visibilitychange`
-
-Parallax: offset de blobs baseado em mouse + `scrollY * 0.02`.
-
-## Galeria — Swiper + PhotoSwipe
+## Galeria — abas + PhotoSwipe
 
 | Biblioteca | Papel |
 |------------|-------|
-| **Swiper** | Carrossel responsivo na página (`slidesPerView` por breakpoint) |
 | **PhotoSwipe 5** | Lightbox fullscreen, zoom, gestos touch |
 
-PhotoSwipe carregado via `import()` no primeiro clique — reduz bundle inicial (~conforme recomendação da lib).
-
-Swiper no mobile da seção Features: carrossel horizontal quando grid 4 colunas não cabe.
+A seção Screenshots usa abas acessíveis (`role="tablist"`) em vez de carrossel; o Swiper foi removido. PhotoSwipe segue em `import()` no primeiro clique.
 
 ## Conteúdo e SEO
 
@@ -51,7 +39,7 @@ Swiper no mobile da seção Features: carrossel horizontal quando grid 4 colunas
 
 - `loading="lazy"` em screenshots
 - Dynamic import PhotoSwipe
-- Canvas: `devicePixelRatio` capped em 2
+- Screenshots temáticos: só o variante do tema atual é baixado
 - `motion-safe:` prefix para animações decorativas
 
 ## Deploy
@@ -69,7 +57,6 @@ GitHub Actions em `push main` → `npm ci` + `npm run build` → `dist/` → Pag
 
 ## Não implementado (deliberado)
 
-- Light mode na landing (design system dark-only; app tem tema claro internamente — galeria prefere shots dark)
 - Analytics / telemetry na landing (coerente com marca privacy-first)
 
 ## Histórico
@@ -78,5 +65,6 @@ GitHub Actions em `push main` → `npm ci` + `npm run build` → `dist/` → Pag
 |------|---------|
 | 2025-06 | Mesclagem layout-1 + layout-2 → `DESIGN.md` unificado |
 | 2025-06 | SPA React com seções ordenadas conforme brief |
-| 2025-06 | Mesh Canvas 2D substitui shaders WebGL dos protótipos |
+| 2025-06 | Mesh Canvas 2D substitui shaders WebGL dos protótipos (removido em 2026-10) |
 | 2026-07 | Screenshots versionados em `public/screenshots/app/<version>-<platform>/`; features checklist + compact/tray |
+| 2026-10 | Refresh visual: tema claro/escuro, paleta laranja do app, Hero com mockup, Features em bento (Pomodoro, Hábitos, Lembretes, Calendário), Screenshots em abas (set `0.10.0-rc.5-macos-planner`), Swiper e canvases removidos |

@@ -3,6 +3,8 @@ import {
   IconBell,
   IconBrandApple,
   IconBrandWindows,
+  IconCalendarEvent,
+  IconFlame,
   IconChecklist,
   IconCoffee,
   IconDatabase,
@@ -34,6 +36,9 @@ export const FEATURE_ICON_MAP: Record<string, TablerIcon> = {
   Layout: IconLayoutSidebar,
   Settings: IconSettings,
   Shield: IconShield,
+  Calendar: IconCalendarEvent,
+  Habits: IconFlame,
+  Pomodoro: IconStopwatch,
 }
 
 export const PILLAR_ICONS = [IconDatabase, IconLock, IconWifiOff] as const

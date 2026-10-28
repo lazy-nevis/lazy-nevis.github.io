@@ -212,7 +212,7 @@ export function InstallSection() {
                 'flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-label-sm sm:px-4 sm:text-label-md transition-colors cursor-pointer min-w-0',
                 active === platform
                   ? 'bg-primary-container/15 text-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-white/5',
+                  : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5',
               )}
             >
               <PlatformTabIcon id={platform} />
@@ -249,7 +249,7 @@ export function InstallSection() {
                   'flex-1 rounded-xl px-3 py-2.5 text-label-md transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed',
                   effectiveChannel === 'stable'
                     ? 'bg-primary-container/15 text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-white/5',
+                    : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5',
                 )}
               >
                 {t('channel.stable')}
@@ -263,7 +263,7 @@ export function InstallSection() {
                   'flex-1 rounded-xl px-3 py-2.5 text-label-md transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed',
                   effectiveChannel === 'prerelease'
                     ? 'bg-primary-container/15 text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-white/5',
+                    : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5',
                 )}
               >
                 {t('channel.prerelease')}

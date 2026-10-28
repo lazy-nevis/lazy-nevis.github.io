@@ -8,7 +8,7 @@ Marketing site for [LazyNevis](https://github.com/lazy-nevis/lazy-nevis) — pri
 
 ## Stack
 
-React 19 · TypeScript · Vite · Tailwind CSS v4 · shadcn/ui · Swiper · PhotoSwipe · Canvas mesh hero
+React 19 · TypeScript · Vite · Tailwind CSS v4 · shadcn/ui · PhotoSwipe · tema claro/escuro
 
 ## Development
 

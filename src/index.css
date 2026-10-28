@@ -1,41 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/grid';
-@import 'swiper/css/effect-coverflow';
 
-@theme {
+/* Light + dark tokens. Values mirror the app (lazy-nevis/src/index.css, "Quiet Workspace"):
+   neutral zinc surfaces and the orange brand accent. Dark is the default look. */
+:root {
+  color-scheme: dark;
+  --background: #0f0f11;
+  --foreground: #f4f4f5;
+  --card: #151518;
+  --card-foreground: #f4f4f5;
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+  --primary: #fb923c;
+  --primary-foreground: #1c0a00;
+  --primary-container: #f97316;
+  --secondary: #a1a1aa;
+  --secondary-foreground: #18181b;
+  --muted: #232326;
+  --muted-foreground: #a1a1aa;
+  --accent: #232326;
+  --accent-foreground: #f4f4f5;
+  --destructive: #f87171;
+  --destructive-foreground: #450a0a;
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.15);
+  --ring: #fb923c;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --brand-pink: #f472b6;
+  --brand-accent: #e84393;
+  --surface-container: #18181b;
+  --surface-container-low: #131316;
+  --surface-container-high: #232326;
+  --surface-container-lowest: #0b0b0d;
+  --glass-bg: rgb(21 21 24 / 0.6);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glow-a: rgb(249 115 22 / 0.22);
+  --glow-b: rgb(232 67 147 / 0.14);
+  --shadow-shot: 0 30px 80px -20px rgb(0 0 0 / 0.7);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --background: #fcfcfd;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --popover: #ffffff;
+  --popover-foreground: #18181b;
+  --primary: #c2410c;
+  --primary-foreground: #1c0a00;
+  --primary-container: #f97316;
+  --secondary: #52525b;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --border: rgb(24 24 27 / 0.12);
+  --input: rgb(24 24 27 / 0.18);
+  --ring: #c2410c;
+  --success: #15803d;
+  --warning: #b45309;
+  --brand-pink: #db2777;
+  --brand-accent: #db2777;
+  --surface-container: #f4f4f5;
+  --surface-container-low: #fafafa;
+  --surface-container-high: #e4e4e7;
+  --surface-container-lowest: #f4f4f5;
+  --glass-bg: rgb(255 255 255 / 0.7);
+  --glass-border: rgb(24 24 27 / 0.1);
+  --glow-a: rgb(249 115 22 / 0.22);
+  --glow-b: rgb(244 114 182 / 0.18);
+  --shadow-shot: 0 30px 70px -25px rgb(24 24 27 / 0.35);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --background: #fcfcfd;
+    --foreground: #18181b;
+    --card: #ffffff;
+    --card-foreground: #18181b;
+    --popover: #ffffff;
+    --popover-foreground: #18181b;
+    --primary: #c2410c;
+    --secondary: #52525b;
+    --muted: #f4f4f5;
+    --muted-foreground: #52525b;
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+    --destructive: #dc2626;
+    --border: rgb(24 24 27 / 0.12);
+    --input: rgb(24 24 27 / 0.18);
+    --ring: #c2410c;
+    --success: #15803d;
+    --warning: #b45309;
+    --brand-pink: #db2777;
+    --surface-container: #f4f4f5;
+    --surface-container-low: #fafafa;
+    --surface-container-high: #e4e4e7;
+    --surface-container-lowest: #f4f4f5;
+    --glass-bg: rgb(255 255 255 / 0.7);
+    --glass-border: rgb(24 24 27 / 0.1);
+    --glow-b: rgb(244 114 182 / 0.18);
+    --shadow-shot: 0 30px 70px -25px rgb(24 24 27 / 0.35);
+  }
+}
+
+@theme inline {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 
-  --color-background: #0b0f10;
-  --color-foreground: #e0e3e5;
-  --color-card: rgb(18 19 26 / 0.6);
-  --color-card-foreground: #e0e3e5;
-  --color-popover: rgb(29 32 34 / 0.9);
-  --color-popover-foreground: #e0e3e5;
-  --color-primary: #ffb3ad;
-  --color-primary-foreground: #fff5f4;
-  --color-primary-container: #d63031;
-  --color-on-primary-container: #fff5f4;
-  --color-secondary: #c5c5d8;
-  --color-secondary-foreground: #191b28;
-  --color-muted: #323537;
-  --color-muted-foreground: #ab8985;
-  --color-accent: #1e202e;
-  --color-accent-foreground: #e0e3e5;
-  --color-destructive: #ffb4ab;
-  --color-destructive-foreground: #690005;
-  --color-border: rgb(255 255 255 / 0.1);
-  --color-input: rgb(255 255 255 / 0.15);
-  --color-ring: #d63031;
-  --color-success: #6ee7b7;
-  --color-warning: #fbbf24;
-  --color-brand-pink: #ff9996;
-  --color-brand-accent: #e84393;
-  --color-surface-container: #1d2022;
-  --color-surface-container-low: #191c1e;
-  --color-surface-container-high: #272a2c;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-accent: var(--brand-accent);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-lowest: var(--surface-container-lowest);
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -97,8 +203,6 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --glass-bg: rgb(18 19 26 / 0.55);
     --glass-blur: 20px;
   }
 
@@ -192,16 +296,16 @@
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--color-border);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
   }
 
   .btn-gradient {
-    @apply bg-primary-container text-primary-foreground shadow-[0_4px_20px_rgb(214_48_49/0.35)] transition-all duration-200 hover:bg-[#c42a2a] active:scale-[0.98];
+    @apply bg-primary-container text-primary-foreground shadow-[0_4px_20px_rgb(249_115_22/0.3)] transition-all duration-200 hover:brightness-110 active:scale-[0.98];
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-container to-brand-pink bg-clip-text text-transparent;
   }
 
   .section-heading-accent {
@@ -211,10 +315,6 @@
   .overflow-x-clip {
     overflow-x: clip;
   }
-}
-
-.swiper-button-disabled {
-  @apply opacity-40 pointer-events-none;
 }
 
 .pswp {
@@ -231,13 +331,28 @@ div.pswp__img--placeholder,
   background: transparent !important;
 }
 
-.screenshots-coverflow .swiper-slide {
-  width: min(78vw, 300px);
-  height: auto;
+.hero-glow {
+  background:
+    radial-gradient(40rem 28rem at 15% 0%, var(--glow-a), transparent 70%),
+    radial-gradient(36rem 26rem at 90% 10%, var(--glow-b), transparent 70%);
 }
 
-@media (min-width: 768px) {
-  .screenshots-coverflow .swiper-slide {
-    width: min(38vw, 420px);
+.shot-frame {
+  box-shadow: var(--shadow-shot);
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
+  50% { transform: translate3d(0, -10px, 0) rotate(var(--r, 0deg)); }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .motion-safe\:animate-float {
+    animation: none;
   }
 }

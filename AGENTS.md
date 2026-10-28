@@ -19,9 +19,9 @@ Autor: [SimStm](https://github.com/SimStm) · portfolio [SIMSDEV](https://sims.d
 | Estilo | Tailwind CSS v4 (`@theme` em `src/index.css`) |
 | i18n | next-intl (`en-US`, `pt-BR`) — mensagens em `src/i18n/messages/` |
 | Componentes | shadcn/ui (primitivos em `src/components/ui/`) |
-| Carrossel | Swiper 12 |
+| Tema | Claro/escuro via CSS vars + `data-theme` (`use-theme.ts`, `ThemeToggle.tsx`) |
 | Lightbox | PhotoSwipe 5 (dynamic import no primeiro clique) |
-| Hero | Canvas 2D mesh gradient (`MeshGradientCanvas.tsx`) |
+| Hero | Mockup do app + `hero-glow` em CSS (`Hero.tsx`, `AppShot`) |
 | Deploy | GitHub Pages (`.github/workflows/deploy.yml`) |
 
 ## Estrutura de pastas
@@ -30,13 +30,13 @@ Autor: [SimStm](https://github.com/SimStm) · portfolio [SIMSDEV](https://sims.d
 src/
   assets/brand/       # Logo SVG / header
   components/
-    hero/             # MeshGradientCanvas
     layout/           # Header, Footer, Section
     sections/         # Uma seção por arquivo
     seo/              # JSON-LD
     ui/               # shadcn primitives
   data/content.ts     # Textos, links, FAQ, SCREENSHOT_SET — fonte única
   hooks/use-ui.ts     # reduced-motion, scroll reveal
+  hooks/use-theme.ts  # tema claro/escuro
 public/
   screenshots/
     app/<version>-<platform>/   # Sets versionados (WebP + manifest.json)
@@ -68,7 +68,7 @@ Deploy: push na branch `main` dispara GitHub Actions.
 4. **Componentes** — Um arquivo por seção; props tipadas; sem `any`.
 5. **Ícones** — `@tabler/icons-react` apenas (sem emojis como ícones UI). Mapear novos ícones em `src/components/icons/maps.ts`.
 6. **Acessibilidade** — `aria-label` em botões icon-only; headings sem pular níveis; `prefers-reduced-motion` respeitado.
-7. **Performance** — PhotoSwipe lazy; imagens `loading="lazy"` fora do hero; canvas pausa em `visibilitychange`.
+7. **Performance** — PhotoSwipe lazy; imagens `loading="lazy"` fora do hero; sem animação JS decorativa.
 8. **Ordem das seções** — Header → Hero → Sobre → Features → Como Funciona → Instalação → Screenshots → Contribua → FAQ → Footer (obrigatório).
 
 ## Relação com o repo principal
@@ -77,7 +77,7 @@ Deploy: push na branch `main` dispara GitHub Actions.
 |---------|--------|
 | Landing (este repo) | [lazy-nevis/lazy-nevis.github.io](https://github.com/lazy-nevis/lazy-nevis.github.io) |
 | README / features / FAQ | `lazy-nevis/lazy-nevis` README (+ OpenSpec changes recentes) |
-| Screenshots do app | `lazy-nevis/scripts/screenshots/out/<version>-<platform>/` |
+| Screenshots do app | `lazy-nevis/docs/screenshots/macos/` (PNG dark+light, set atual) ou `lazy-nevis/scripts/screenshots/out/<version>-<platform>/`; converter para WebP em `public/screenshots/app/<set>/` |
 | Logo / app icon | `src/assets/brand/` no repo principal |
 | Releases / download | `github.com/lazy-nevis/lazy-nevis/releases` |
 | Install guides | `docs/install/{macos,windows,linux}.md` |

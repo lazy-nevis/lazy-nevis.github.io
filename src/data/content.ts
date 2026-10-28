@@ -27,11 +27,27 @@ export const NAV_HREFS = [
   { key: 'faq', href: '#faq' },
 ] as const
 
+/** Planner features shown as screenshot cards (bento). `shot` is a SCREENSHOTS id. */
+export const PLANNER_KEYS = ['pomodoro', 'habits', 'reminders', 'calendar'] as const
+
+export const PLANNER_SHOTS: Record<(typeof PLANNER_KEYS)[number], string> = {
+  pomodoro: 'pomodoro',
+  habits: 'habits',
+  reminders: 'reminders',
+  calendar: 'calendar',
+}
+
+export const PLANNER_ICONS: Record<(typeof PLANNER_KEYS)[number], string> = {
+  pomodoro: 'Pomodoro',
+  habits: 'Habits',
+  reminders: 'Bell',
+  calendar: 'Calendar',
+}
+
 export const FEATURE_KEYS = [
   'session',
   'classification',
   'alerts',
-  'audio',
   'breaks',
   'checklist',
   'history',
@@ -44,7 +60,6 @@ export const FEATURE_ICONS: Record<(typeof FEATURE_KEYS)[number], string> = {
   session: 'Timer',
   classification: 'Target',
   alerts: 'Bell',
-  audio: 'Volume2',
   breaks: 'Coffee',
   checklist: 'Checklist',
   history: 'History',
@@ -119,89 +134,49 @@ export const LINUX_DEPS_CMD =
   'sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libayatana-appindicator3-1'
 
 /**
- * Active capture set from the app repo:
- * `lazy-nevis/scripts/screenshots/out/<version>-<platform>/`
- * Copied into `public/screenshots/app/<version>-<platform>/` as WebP.
- * Keep older version folders for history; only change this constant + SCREENSHOTS
- * when promoting a new set.
+ * Active capture set from the app repo (`docs/screenshots/macos/`, app 0.10.0-rc.5 + planner suite).
+ * Copied into `public/screenshots/app/<SCREENSHOT_SET>/` as WebP. Keep older version
+ * folders for history; only change this constant + SCREENSHOTS when promoting a new set.
  */
-export const SCREENSHOT_SET = '0.10.0-rc.5-macos' as const
+export const SCREENSHOT_SET = '0.10.0-rc.5-macos-planner' as const
 
 export type ScreenshotItem = {
   /** i18n key under `screenshots.items.*` */
   id: string
-  src: string
+  /** File stem inside the set folder (without `-dark` / `-light` / `.webp`) */
+  file: string
+  /** True when the set ships `<file>-dark.webp` and `<file>-light.webp` */
+  themed: boolean
   width: number
   height: number
 }
 
-function screenshotSrc(file: string): string {
-  return `/screenshots/app/${SCREENSHOT_SET}/${file}.webp`
+export function screenshotSrc(shot: ScreenshotItem, theme: 'light' | 'dark'): string {
+  const name = shot.themed ? `${shot.file}-${theme}` : shot.file
+  return `/screenshots/app/${SCREENSHOT_SET}/${name}.webp`
 }
 
-/** Curated gallery (dark theme preferred to match the landing). Full set lives on disk. */
+const WIDE = { width: 1600, height: 939 } as const
+
+/** Curated gallery. Both themes are shipped; the site picks the one matching its theme. */
 export const SCREENSHOTS: ScreenshotItem[] = [
-  {
-    id: 'dashboardRunning',
-    src: screenshotSrc('dashboard-running-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'dashboardIdle',
-    src: screenshotSrc('dashboard-idle-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'history',
-    src: screenshotSrc('history-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'historyDetail',
-    src: screenshotSrc('history-detail-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'settings',
-    src: screenshotSrc('settings-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'checklist',
-    src: screenshotSrc('checklist-dark'),
-    width: 1212,
-    height: 932,
-  },
-  {
-    id: 'fullscreenAlert',
-    src: screenshotSrc('fullscreen-alert'),
-    width: 1146,
-    height: 826,
-  },
-  {
-    id: 'compactRunning',
-    src: screenshotSrc('compact-running-dark'),
-    width: 492,
-    height: 972,
-  },
-  {
-    id: 'trayRunning',
-    src: screenshotSrc('tray-running-dark'),
-    width: 386,
-    height: 526,
-  },
-  {
-    id: 'about',
-    src: screenshotSrc('about-dark'),
-    width: 1212,
-    height: 932,
-  },
+  { id: 'dashboardRunning', file: 'dashboard-running', themed: true, ...WIDE },
+  { id: 'pomodoro', file: 'pomodoro', themed: true, ...WIDE },
+  { id: 'habits', file: 'habits', themed: true, ...WIDE },
+  { id: 'reminders', file: 'reminders', themed: true, ...WIDE },
+  { id: 'calendar', file: 'calendar', themed: true, ...WIDE },
+  { id: 'checklist', file: 'checklist', themed: true, ...WIDE },
+  { id: 'history', file: 'history', themed: true, ...WIDE },
+  { id: 'compactRunning', file: 'compact-running', themed: true, width: 512, height: 1012 },
+  { id: 'trayRunning', file: 'tray-running', themed: true, width: 386, height: 526 },
+  { id: 'fullscreenAlert', file: 'fullscreen-alert', themed: false, width: 1146, height: 826 },
 ]
+
+export function getScreenshot(id: string): ScreenshotItem {
+  const shot = SCREENSHOTS.find((s) => s.id === id)
+  if (!shot) throw new Error(`Unknown screenshot id: ${id}`)
+  return shot
+}
 
 export const CONTRIBUTE_KEYS = [
   'issues',
@@ -224,6 +199,8 @@ export const FAQ_KEYS = [
   'block',
   'cloud',
   'classification',
+  'planner',
+  'account',
   'platforms',
   'telemetry',
   'macosPerms',

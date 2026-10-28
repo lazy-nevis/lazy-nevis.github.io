@@ -1,151 +1,104 @@
 import { useTranslations } from 'next-intl'
-import { useCallback, useRef } from 'react'
-import { Autoplay, EffectCoverflow, Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import type { Swiper as SwiperType } from 'swiper'
+import { useCallback, useRef, useState } from 'react'
 
-import {
-  IconChevronLeft,
-  IconChevronRight,
-} from '@/components/icons'
 import { Section, SectionHeader } from '@/components/layout/Section'
-import { Button } from '@/components/ui/button'
-import { SCREENSHOTS } from '@/data/content'
+import { AppShot } from '@/components/ui/app-shot'
+import { SCREENSHOTS, screenshotSrc } from '@/data/content'
+import { useTheme } from '@/hooks/use-theme'
 import { useReducedMotion } from '@/hooks/use-ui'
 import { cn } from '@/lib/utils'
 
 export function ScreenshotsSection() {
   const t = useTranslations('screenshots')
   const reducedMotion = useReducedMotion()
-  const swiperRef = useRef<SwiperType | null>(null)
+  const { theme } = useTheme()
+  const [active, setActive] = useState(0)
   const lightboxRef = useRef<import('photoswipe').default | null>(null)
+  const current = SCREENSHOTS[active] ?? SCREENSHOTS[0]
 
-  const openLightbox = useCallback(
-    async (index: number) => {
-      const PhotoSwipe = (await import('photoswipe')).default
-      await import('photoswipe/style.css')
+  const openLightbox = useCallback(async () => {
+    const PhotoSwipe = (await import('photoswipe')).default
+    await import('photoswipe/style.css')
 
-      if (lightboxRef.current) {
-        lightboxRef.current.destroy()
-      }
+    lightboxRef.current?.destroy()
 
-      const items = SCREENSHOTS.map((shot) => ({
-        src: shot.src,
+    const pswp = new PhotoSwipe({
+      dataSource: SCREENSHOTS.map((shot) => ({
+        src: screenshotSrc(shot, theme),
         width: shot.width,
         height: shot.height,
         alt: t(`items.${shot.id}.alt`),
-      }))
+      })),
+      index: active,
+      bgOpacity: 0.92,
+      padding: { top: 20, bottom: 40, left: 12, right: 12 },
+      showHideAnimationType: reducedMotion ? 'none' : 'zoom',
+      mainClass: 'pswp--lazynevis',
+    })
+    pswp.addFilter('useContentPlaceholder', () => false)
+    lightboxRef.current = pswp
+    pswp.init()
+  }, [active, reducedMotion, t, theme])
 
-      const pswp = new PhotoSwipe({
-        dataSource: items,
-        index,
-        bgOpacity: 0.92,
-        padding: { top: 20, bottom: 40, left: 12, right: 12 },
-        showHideAnimationType: reducedMotion ? 'none' : 'zoom',
-        mainClass: 'pswp--lazynevis',
-      })
-
-      pswp.addFilter('useContentPlaceholder', () => false)
-
-      lightboxRef.current = pswp
-      pswp.init()
-    },
-    [reducedMotion, t],
-  )
+  const portrait = current.height > current.width
 
   return (
-    <Section id="screenshots" containerClassName="!max-w-[100vw] overflow-hidden">
-      <div className="px-container max-w-7xl mx-auto">
-        <SectionHeader title={t('title')} description={t('description')} />
+    <Section id="screenshots">
+      <SectionHeader title={t('title')} description={t('description')} centered />
 
-        <div className="mb-4 flex justify-center gap-2 sm:mb-6 sm:justify-end">
-          <Button
-            variant="secondary"
-            size="icon"
-            aria-label={t('prev')}
-            onClick={() => swiperRef.current?.slidePrev()}
+      <div
+        role="tablist"
+        aria-label={t('title')}
+        className="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0"
+      >
+        {SCREENSHOTS.map((shot, index) => (
+          <button
+            key={shot.id}
+            type="button"
+            role="tab"
+            id={`shot-tab-${shot.id}`}
+            aria-selected={index === active}
+            aria-controls="shot-panel"
+            onClick={() => setActive(index)}
+            className={cn(
+              'shrink-0 cursor-pointer rounded-full border px-4 py-2 text-label-md transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+              index === active
+                ? 'border-primary-container bg-primary-container text-primary-foreground'
+                : 'border-border bg-card/60 text-muted-foreground hover:text-foreground',
+            )}
           >
-            <IconChevronLeft className="size-5" aria-hidden />
-          </Button>
-          <Button
-            variant="secondary"
-            size="icon"
-            aria-label={t('next')}
-            onClick={() => swiperRef.current?.slideNext()}
-          >
-            <IconChevronRight className="size-5" aria-hidden />
-          </Button>
-        </div>
+            {t(`items.${shot.id}.tab`)}
+          </button>
+        ))}
       </div>
 
-      <Swiper
-        className="screenshots-coverflow px-container !overflow-visible !pb-4"
-        modules={[EffectCoverflow, Autoplay, Navigation]}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper
-        }}
-        effect="coverflow"
-        grabCursor
-        centeredSlides
-        loop
-        slidesPerView="auto"
-        coverflowEffect={{
-          rotate: 18,
-          stretch: 0,
-          depth: 120,
-          modifier: 1.15,
-          slideShadows: false,
-        }}
-        autoplay={
-          reducedMotion
-            ? false
-            : {
-                delay: 3500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }
-        }
-        spaceBetween={16}
-        breakpoints={{
-          768: {
-            spaceBetween: 24,
-            coverflowEffect: {
-              rotate: 24,
-              depth: 160,
-              modifier: 1.2,
-            },
-          },
-        }}
+      <div
+        id="shot-panel"
+        role="tabpanel"
+        aria-labelledby={`shot-tab-${current.id}`}
+        className="relative mx-auto max-w-5xl"
       >
-        {SCREENSHOTS.map((shot, index) => {
-          const caption = t(`items.${shot.id}.caption`)
-          return (
-            <SwiperSlide key={shot.id}>
-              <button
-                type="button"
-                className={cn(
-                  'group relative block w-full cursor-pointer text-left',
-                  'transition-transform duration-300 motion-safe:hover:scale-[1.02]',
-                )}
-                onClick={() => void openLightbox(index)}
-                aria-label={t('openFullscreen', { caption })}
-              >
-                <img
-                  src={shot.src}
-                  alt={t(`items.${shot.id}.alt`)}
-                  className="h-auto w-full rounded-2xl object-contain"
-                  loading="lazy"
-                  width={shot.width}
-                  height={shot.height}
-                />
-                <p className="mt-2 px-1 text-center text-sm font-semibold text-foreground sm:text-base line-clamp-2">
-                  {caption}
-                </p>
-              </button>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
+        <div className="hero-glow pointer-events-none absolute inset-0 -z-10 opacity-70" aria-hidden />
+        <button
+          type="button"
+          onClick={() => void openLightbox()}
+          aria-label={t('openFullscreen', { caption: t(`items.${current.id}.caption`) })}
+          className="mx-auto block w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
+        >
+          <AppShot
+            key={current.id}
+            id={current.id}
+            alt={t(`items.${current.id}.alt`)}
+            className={cn(
+              'shot-frame mx-auto motion-safe:animate-fade-in-up',
+              portrait ? 'max-h-[34rem] w-auto rounded-2xl' : 'rounded-xl',
+            )}
+          />
+        </button>
+        <p className="mt-6 text-center text-body-md text-muted-foreground">
+          {t(`items.${current.id}.caption`)}
+        </p>
+      </div>
     </Section>
   )
 }

@@ -7,6 +7,8 @@ import {
   IconMenu2,
 } from '@/components/icons';
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
+import { BrandLogo } from '@/components/layout/BrandLogo';
+import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -19,7 +21,6 @@ import { NAV_HREFS, SITE } from '@/data/content';
 import { useScrolled } from '@/hooks/use-ui';
 import { cn } from '@/lib/utils';
 
-import logo from '@/assets/brand/logo-header.webp';
 
 export function Header() {
   const t = useTranslations('nav');
@@ -31,7 +32,7 @@ export function Header() {
     <a
       key={href}
       href={href}
-      className="text-label-md text-muted-foreground transition-colors duration-200 hover:text-foreground rounded-lg px-3 py-2 hover:bg-white/5 cursor-pointer"
+      className="text-label-md text-muted-foreground transition-colors duration-200 hover:text-foreground rounded-lg px-3 py-2 hover:bg-foreground/5 cursor-pointer"
       onClick={() => setOpen(false)}
     >
       {label}
@@ -53,7 +54,7 @@ export function Header() {
           className="flex items-center gap-3 cursor-pointer shrink-0 min-w-0"
           aria-label={tc('home')}
         >
-          <img src={logo} alt="" className="h-9 w-auto sm:h-10 md:h-11" />
+          <BrandLogo className="h-9 w-auto sm:h-10 md:h-11" />
         </a>
 
         <nav
@@ -65,6 +66,7 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <LanguageSwitcher className="hidden sm:flex" />
+          <ThemeToggle className="hidden sm:inline-flex" />
 
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <a href="#install">
@@ -88,8 +90,9 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle>{SITE.name}</SheetTitle>
               </SheetHeader>
-              <div className="mt-6">
+              <div className="mt-6 flex items-center gap-3">
                 <LanguageSwitcher />
+                <ThemeToggle />
               </div>
               <nav
                 className="mt-6 flex flex-col gap-1"

@@ -1,11 +1,18 @@
 import { FEATURE_ICON_MAP } from '@/components/icons'
 import { useTranslations } from 'next-intl'
 import { useEffect, useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Section, SectionHeader } from '@/components/layout/Section'
+import { AppShot } from '@/components/ui/app-shot'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FEATURE_ICONS, FEATURE_KEYS, HOW_IT_WORKS_STEP_KEYS } from '@/data/content'
+import {
+  FEATURE_ICONS,
+  FEATURE_KEYS,
+  HOW_IT_WORKS_STEP_KEYS,
+  PLANNER_ICONS,
+  PLANNER_KEYS,
+  PLANNER_SHOTS,
+} from '@/data/content'
 import { useReducedMotion } from '@/hooks/use-ui'
 import { cn } from '@/lib/utils'
 
@@ -15,54 +22,81 @@ function FeatureCard({ featureKey }: { featureKey: (typeof FEATURE_KEYS)[number]
   const Icon = FEATURE_ICON_MAP[iconName] ?? FEATURE_ICON_MAP.Shield
 
   return (
-    <Card className="h-full transition-colors duration-200 hover:border-primary-container/25 cursor-default">
+    <Card className="h-full transition-colors duration-200 hover:border-primary-container/40">
       <CardHeader className="p-5 sm:p-6">
-        <div className="mb-4 flex size-11 sm:size-12 items-center justify-center rounded-xl bg-primary-container/15 text-primary-container">
+        <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-primary-container/15 text-primary">
           <Icon className="size-6" aria-hidden stroke={1.75} />
         </div>
-        <CardTitle>{t(`${featureKey}.title`)}</CardTitle>
+        <CardTitle className="text-body-lg font-semibold">{t(`${featureKey}.title`)}</CardTitle>
         <CardDescription>{t(`${featureKey}.description`)}</CardDescription>
       </CardHeader>
     </Card>
   )
 }
 
+function PlannerCard({
+  plannerKey,
+  large,
+}: {
+  plannerKey: (typeof PLANNER_KEYS)[number]
+  large: boolean
+}) {
+  const t = useTranslations('features.planner.items')
+  const ts = useTranslations('screenshots.items')
+  const Icon = FEATURE_ICON_MAP[PLANNER_ICONS[plannerKey]] ?? FEATURE_ICON_MAP.Shield
+  const shotId = PLANNER_SHOTS[plannerKey]
+
+  return (
+    <article
+      className={cn(
+        'glass-panel group flex flex-col overflow-hidden rounded-2xl transition-colors duration-200 hover:border-primary-container/40',
+        large ? 'lg:col-span-3' : 'lg:col-span-2',
+      )}
+    >
+      <div className="p-5 pb-4 sm:p-6 sm:pb-4">
+        <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-primary-container/15 text-primary">
+          <Icon className="size-6" aria-hidden stroke={1.75} />
+        </div>
+        <h3 className="text-headline-md text-foreground">{t(`${plannerKey}.title`)}</h3>
+        <p className="mt-2 text-body-md text-muted-foreground">{t(`${plannerKey}.description`)}</p>
+      </div>
+      <div className="relative mt-auto h-52 overflow-hidden px-4 sm:h-60 sm:px-6">
+        <AppShot
+          id={shotId}
+          alt={ts(`${shotId}.alt`)}
+          sizes="(min-width: 1024px) 40vw, 90vw"
+          className="rounded-t-xl border border-b-0 border-border object-top transition-transform duration-500 motion-safe:group-hover:-translate-y-1"
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-card/80 to-transparent"
+          aria-hidden
+        />
+      </div>
+    </article>
+  )
+}
+
 export function FeaturesSection() {
   const t = useTranslations('features')
-  const reduced = useReducedMotion()
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-    const update = () => setIsMobile(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
 
   return (
     <Section id="features">
-      <SectionHeader
-        title={t('title')}
-        description={t('description')}
-        centered
-      />
+      <SectionHeader title={t('title')} description={t('description')} centered />
 
-      {isMobile && !reduced ? (
-        <Swiper spaceBetween={16} slidesPerView={1.15} className="!overflow-visible">
-          {FEATURE_KEYS.map((key) => (
-            <SwiperSlide key={key}>
-              <FeatureCard featureKey={key} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURE_KEYS.map((key) => (
-            <FeatureCard key={key} featureKey={key} />
-          ))}
-        </div>
-      )}
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-5">
+        {PLANNER_KEYS.map((key, i) => (
+          <PlannerCard key={key} plannerKey={key} large={i === 0 || i === 3} />
+        ))}
+      </div>
+
+      <h3 className="mt-14 mb-6 text-center text-headline-md text-foreground sm:mt-20">
+        {t('focusTitle')}
+      </h3>
+      <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        {FEATURE_KEYS.map((key) => (
+          <FeatureCard key={key} featureKey={key} />
+        ))}
+      </div>
     </Section>
   )
 }

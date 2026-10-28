@@ -41,6 +41,10 @@ export function AboutSection() {
           <p>{t.rich('p1', richTags)}</p>
           <p>{t.rich('p2', richTags)}</p>
           <p>{t('p3')}</p>
+          <div className="rounded-2xl border border-border bg-card/60 p-5">
+            <p className="text-label-md text-foreground">{t('nameTitle')}</p>
+            <p className="mt-1 text-body-md">{t('nameText')}</p>
+          </div>
         </div>
 
         <div className="grid gap-4">

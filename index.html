@@ -1,16 +1,23 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LazyNevis — Privacy-first desktop focus tool for macOS, Windows &amp; Linux</title>
     <meta
       name="description"
-      content="LazyNevis watches your active window, classifies focus time locally, and nudges you when you drift — without blocking apps, cloud sync, or telemetry. Free and open-source."
+      content="LazyNevis tracks your focus locally and nudges you when you drift, with Pomodoro, habits, reminders and a calendar. No account, no cloud, no telemetry, nothing blocked. Free and open source."
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Lucas (SimStm)" />
-    <meta name="theme-color" content="#0b0f10" />
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fcfcfd" media="(prefers-color-scheme: light)" />
+    <script>
+      try {
+        var t = localStorage.getItem("lazynevis-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
     <link rel="canonical" href="https://lazy-nevis.github.io/" />
 
     <!-- Favicons -->

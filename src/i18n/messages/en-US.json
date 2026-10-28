@@ -9,35 +9,43 @@
     "home": "LazyNevis home",
     "mainNav": "Main navigation",
     "mobileNav": "Mobile navigation",
-    "placeholder": "Placeholder image"
+    "placeholder": "Placeholder image",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme"
   },
   "nav": {
     "about": "About",
-    "install": "Install",
+    "install": "Download",
     "features": "Features",
-    "howItWorks": "How It Works",
-    "screenshots": "Screenshots",
+    "howItWorks": "How it works",
+    "screenshots": "Screens",
     "contribute": "Contribute",
     "faq": "FAQ"
   },
   "hero": {
-    "badge": "Privacy-first · Local-only",
-    "subBadge": "100% free, open-source · cross-platform",
-    "title": "Track your behavior.",
-    "subTitle": "Improve your focus.",
-    "titleAccent": "Be productive.",
-    "description": "LazyNevis is a privacy-first desktop focus tool. It watches the active window during a session, classifies your time as focused or distracted, and nudges you when you drift — without ever blocking an app or sending data anywhere.",
-    "tagline": "LazyNevis - for lazy people who don't give upis.",
-    "ctaDownload": "Download",
+    "badge": "Free, open source and 100% on your computer",
+    "title": "Stay focused,",
+    "titleAccent": "keep your privacy.",
+    "description": "LazyNevis watches what you do during a focus session, nudges you when you drift, and helps you plan your day with Pomodoro, habits, reminders and a calendar. No account, no cloud, and nothing gets blocked.",
+    "tagline": "LazyNevis — for the lazy who never give up.",
+    "ctaDownload": "Download free",
     "ctaGithub": "View on GitHub",
-    "iconAlt": "LazyNevis app icon — red bucket hat mascot"
+    "iconAlt": "LazyNevis icon",
+    "trust": {
+      "free": "Free and MIT",
+      "offline": "Your data stays with you",
+      "platforms": "macOS, Windows and Linux"
+    },
+    "shotAlt": "LazyNevis dashboard during a focus session, showing focus, distraction and idle time",
+    "trayAlt": "Tray quick panel with the session timer",
+    "compactAlt": "LazyNevis compact window during a session"
   },
   "about": {
-    "title": "Observe. Classify. Nudge.",
-    "description": "Most focus apps block distractions or lock you into timers. LazyNevis takes a different path.",
-    "p1": "During a session, LazyNevis polls the active window every second and classifies that second as <focused>focused</focused>, <distracted>distracted</distracted>, or <idle>idle</idle> according to rules you define.",
-    "p2": "If distraction accumulates past a threshold you set, it fires an alert — a native notification, a fullscreen overlay, or a sound. You decide what to do next. <bold>Nothing is blocked.</bold>",
-    "p3": "Visible but not intrusive: the tray icon keeps LazyNevis out of your way while global shortcuts let you control sessions without switching windows.",
+    "title": "It watches. It nudges. You decide.",
+    "description": "Many focus apps block sites or trap you in a timer. LazyNevis would rather trust you.",
+    "p1": "During a session, LazyNevis checks the active window every second and marks the time as <focused>focused</focused>, <distracted>distracted</distracted> or <idle>idle</idle>, following the rules you set.",
+    "p2": "If distraction goes past your limit, you get an alert: a notification, full screen or sound. What to do next is up to you. <bold>Nothing is blocked.</bold>",
+    "p3": "It stays quietly in the tray, with global shortcuts to control the session without switching windows.",
     "pillars": {
       "localFirst": {
         "title": "Local-first",
@@ -51,57 +59,76 @@
         "title": "No telemetry",
         "description": "Accessibility permission on your OS reads window titles only — never keystrokes. Your focus patterns stay on your machine."
       }
-    }
+    },
+    "nameTitle": "Why \"LazyNevis\"?",
+    "nameText": "It is \"Lazy Never\" run through a playful Brazilian-Portuguese accent (Mussum style): the lazy one who never gives up on focusing. Hence the motto: for the lazy, but never giving up."
   },
   "features": {
-    "title": "Everything you need to stay aware",
-    "description": "Session tools, classification, alerts, and history — all running locally on your machine.",
+    "title": "Everything to make your day count",
+    "description": "Focus, routine and habits in one app. Every feature works offline and asks nothing in return.",
     "items": {
       "session": {
-        "title": "Session management",
-        "description": "Start, pause, resume, and stop with crash-safe recovery. Live timers and manual checkpoints."
+        "title": "Focus sessions",
+        "description": "Start, pause, resume and stop. If the app closes unexpectedly, the session comes back paused with no lost time."
       },
       "classification": {
-        "title": "Focus classification",
-        "description": "Allowlist or blocklist rules by app name or browser tab title. LazyNevis never flags itself."
+        "title": "You define focus",
+        "description": "Choose which apps and tabs count as focus or distraction. LazyNevis simply follows your rules."
       },
       "alerts": {
-        "title": "Alerts & notifications",
-        "description": "Native notifications, fullscreen overlay, or sound — with configurable thresholds and cooldowns."
-      },
-      "audio": {
-        "title": "Audio",
-        "description": "Built-in sounds plus custom MP3, WAV, or OGG files with looping overlay audio."
+        "title": "Alerts your way",
+        "description": "A notification, full screen or sound when distraction passes the limit you set. Nothing is blocked."
       },
       "breaks": {
-        "title": "Breaks",
-        "description": "Configurable break intervals based on focused time, with countdown and per-session history."
+        "title": "Smart breaks",
+        "description": "Get a break reminder after a stretch of focus, with a countdown."
       },
       "checklist": {
         "title": "Daily checklist",
-        "description": "Plan the day with tags, due dates, and undo grace. Link an item to a focus session in one click."
+        "description": "Plan with tags and due dates, and link a task to a focus session in one click."
       },
       "history": {
-        "title": "History & export",
-        "description": "Session reports with timelines, top apps, focus charts, and export to JSON or CSV."
+        "title": "History and export",
+        "description": "See how your sessions went in charts and timelines. Export to JSON or CSV whenever you like."
       },
       "modes": {
-        "title": "Compact & tray",
-        "description": "A slim compact window and a tray quick panel for start, pause, stop, and checklist without leaving your flow."
+        "title": "Compact mode and tray",
+        "description": "Control everything from a tiny window or the tray icon without leaving what you are doing."
       },
       "customization": {
-        "title": "Customization",
-        "description": "English and Portuguese, light/dark themes, global shortcuts, and optional autostart."
+        "title": "Make it yours",
+        "description": "English and Portuguese, light or dark theme, global shortcuts and launch at login."
       },
       "privacy": {
-        "title": "Privacy",
-        "description": "No accounts, cloud sync, analytics, or telemetry. Manual update check only."
+        "title": "Real privacy",
+        "description": "No account, no cloud, no analytics and no telemetry. Your data stays on your computer."
+      }
+    },
+    "focusTitle": "And more: the focus essentials",
+    "planner": {
+      "items": {
+        "pomodoro": {
+          "title": "Pomodoro",
+          "description": "Focus, short-break and long-break cycles with a daily goal. Pause, skip or stop any time — and if you close the app, it picks up where you left off."
+        },
+        "habits": {
+          "title": "Habits",
+          "description": "Set goals to check off, count, or track by volume, weight, distance or time. Log in a tap, follow your streak and get reminders."
+        },
+        "reminders": {
+          "title": "Reminders",
+          "description": "Remind once, daily, at an interval or monthly. Snooze, complete or dismiss, with Markdown notes and an activity log."
+        },
+        "calendar": {
+          "title": "Calendar",
+          "description": "See your month or week with sessions, Pomodoros, habits, checklist and reminders together. Filter and search to find anything."
+        }
       }
     }
   },
   "howItWorks": {
     "title": "How it works",
-    "description": "From session start to history review — a transparent loop you control.",
+    "description": "From starting a session to reviewing history, everything is transparent and under your control.",
     "steps": {
       "1": {
         "title": "Start a session",
@@ -131,7 +158,7 @@
   },
   "install": {
     "title": "Download & install",
-    "description": "Three short steps. No account. No app store. Pick your system and download the helper.",
+    "description": "Three quick steps. No account and no app store. Pick your system and grab the installer.",
     "detectedHint": "We picked your system — switch the tab if that is wrong.",
     "tabs": {
       "macos": "macOS",
@@ -213,57 +240,67 @@
     }
   },
   "screenshots": {
-    "title": "Screenshots",
-    "description": "Real application output from release candidates.",
+    "title": "See LazyNevis inside",
+    "description": "Real screens from the app, in light and dark themes. Click to enlarge.",
     "prev": "Previous screenshot",
     "next": "Next screenshot",
     "openFullscreen": "Open fullscreen: {caption}",
     "items": {
       "dashboardRunning": {
-        "caption": "Dashboard with an active focus session",
-        "alt": "LazyNevis Dashboard showing live focus, distraction, and idle timers during a session"
+        "tab": "Dashboard",
+        "caption": "Dashboard with a focus session running",
+        "alt": "LazyNevis dashboard with focus, distraction and idle timers during a session"
       },
-      "dashboardIdle": {
-        "caption": "Dashboard ready to start",
-        "alt": "LazyNevis Dashboard with no active session and start controls"
+      "pomodoro": {
+        "tab": "Pomodoro",
+        "caption": "Pomodoro with a daily goal and focus and break cycles",
+        "alt": "LazyNevis Pomodoro screen with the timer, the current cycle and the daily goal"
       },
-      "history": {
-        "caption": "Session history and charts",
-        "alt": "LazyNevis History page with seeded sessions and overview charts"
+      "habits": {
+        "tab": "Habits",
+        "caption": "Habits with goals, quick logging and streaks",
+        "alt": "LazyNevis Habits screen with daily goals, quick logging and a day streak"
       },
-      "historyDetail": {
-        "caption": "Session report detail",
-        "alt": "LazyNevis session report with timeline, top apps, and focus stats"
+      "reminders": {
+        "tab": "Reminders",
+        "caption": "One-off, daily, interval and monthly reminders",
+        "alt": "LazyNevis Reminders screen with the list of reminders and their repeats"
       },
-      "settings": {
-        "caption": "Focus rules in Settings",
-        "alt": "LazyNevis Settings showing allowlist and blocklist focus rules"
+      "calendar": {
+        "tab": "Calendar",
+        "caption": "A calendar of what happened and what is coming",
+        "alt": "LazyNevis calendar showing sessions, Pomodoros, habits, checklist and reminders"
       },
       "checklist": {
-        "caption": "Daily checklist",
-        "alt": "LazyNevis Checklist page with open items, tags, and history"
+        "tab": "Checklist",
+        "caption": "Daily checklist with tags and due dates",
+        "alt": "LazyNevis Checklist screen with open items, tags and history"
       },
-      "fullscreenAlert": {
-        "caption": "Fullscreen distraction overlay",
-        "alt": "LazyNevis fullscreen overlay alert shown when distraction threshold is crossed"
+      "history": {
+        "tab": "History",
+        "caption": "Session history with charts",
+        "alt": "LazyNevis History screen with the session list and overview charts"
       },
       "compactRunning": {
+        "tab": "Compact",
         "caption": "Compact mode during a session",
-        "alt": "LazyNevis compact window with an active focus session"
+        "alt": "LazyNevis compact window with a focus session running"
       },
       "trayRunning": {
-        "caption": "Tray quick panel",
-        "alt": "LazyNevis tray quick panel with session timers and controls"
+        "tab": "Tray",
+        "caption": "Quick panel in the tray",
+        "alt": "LazyNevis tray quick panel with timers and session controls"
       },
-      "about": {
-        "caption": "About and updates",
-        "alt": "LazyNevis About page with version info and manual update check"
+      "fullscreenAlert": {
+        "tab": "Alert",
+        "caption": "Full-screen alert when you drift",
+        "alt": "LazyNevis full-screen alert shown when the distraction limit is passed"
       }
     }
   },
   "contribute": {
     "title": "Contribute",
-    "description": "LazyNevis is open-source and MIT licensed. Help shape the future of privacy-first focus tooling.",
+    "description": "LazyNevis is open source (MIT) and community-driven. Help build a focus app that respects your privacy.",
     "viewRepo": "View repository",
     "discussions": "Discussions",
     "items": {
@@ -291,53 +328,62 @@
   },
   "faq": {
     "title": "Frequently asked questions",
-    "description": "Common questions about privacy, platforms, and how LazyNevis works.",
+    "description": "Quick answers about privacy, platforms and how LazyNevis works.",
     "items": {
       "block": {
-        "q": "Does LazyNevis block websites or apps?",
-        "a": "No. LazyNevis watches, classifies, and nudges — it never blocks an app or website. You always decide what to do when an alert fires."
+        "q": "Does LazyNevis block sites or apps?",
+        "a": "No. It observes, nudges and leaves the decision to you. It never blocks anything."
       },
       "cloud": {
-        "q": "Is my data sent to the cloud?",
-        "a": "No. All session data, settings, and audio files stay in your OS application-data directory. There is no cloud sync, account, analytics, or telemetry."
+        "q": "Does my data go to the cloud?",
+        "a": "No. Sessions, habits, reminders, settings and audio stay in your system data folder. There is no account, cloud, analytics or telemetry."
       },
       "classification": {
-        "q": "How does focus classification work?",
-        "a": "During a session, LazyNevis polls the active window every second. A rule engine classifies each second as focused, distracted, or idle using your allowlist or blocklist rules. Browser tab titles can be matched separately from the host app."
+        "q": "How does it know I am focused?",
+        "a": "During a session it checks the active window every second and compares it with your rules (allowlist or blocklist). It can also consider the browser tab title."
+      },
+      "planner": {
+        "q": "What are Pomodoro, Habits, Reminders and Calendar?",
+        "a": "They are the app's routine tools. Pomodoro handles focus and break cycles; Habits tracks goals and streaks; Reminders nudges you at the right time; and Calendar brings it all into a month or week view. Everything works offline."
       },
       "platforms": {
-        "q": "What platforms are supported?",
-        "a": "macOS 12+ (Apple Silicon ARM64), Windows 10+ (x64 and ARM64), and Linux x64 (AppImage, DEB, RPM). Download only from official GitHub Releases."
+        "q": "Which systems are supported?",
+        "a": "macOS 12+ (Apple Silicon), Windows 10 or 11 (x64 and ARM64) and Linux x64 (AppImage, DEB and RPM). Always download from the official GitHub Releases."
+      },
+      "account": {
+        "q": "Do I need an account?",
+        "a": "No. Download, install and use it. No login, email or sign-up."
       },
       "telemetry": {
         "q": "Does LazyNevis collect telemetry?",
-        "a": "No telemetry, analytics, or background update checks. The only network request is an explicit \"Check for updates\" button that reads public release metadata from GitHub."
+        "a": "No. The only connection is the \"Check for updates\" button, which only reads public GitHub info when you click it."
       },
       "macosPerms": {
-        "q": "What permissions does macOS require?",
-        "a": "Accessibility (required) to read the active app name and window title — not keystrokes. Notifications are optional and only needed for native notification alerts."
+        "q": "What permissions does macOS ask for?",
+        "a": "Accessibility (required) to read the active app and window title, never what you type. Notifications are optional and only for native alerts."
       },
       "crash": {
-        "q": "What happens if the app crashes mid-session?",
-        "a": "Sessions are snapshotted every five seconds to local SQLite. On next launch, the session is recovered in a paused state so no time is lost."
+        "q": "What if the app closes mid-session?",
+        "a": "The session is saved every five seconds. When you reopen it, it comes back paused and you do not lose recorded time."
       },
       "license": {
-        "q": "What license is LazyNevis under?",
-        "a": "LazyNevis is MIT licensed. You are free to use, modify, and distribute it according to the license terms."
+        "q": "What is the license?",
+        "a": "MIT. You can use, modify and distribute it under the license terms."
       },
       "signed": {
-        "q": "Are release builds signed?",
-        "a": "RC builds may be unsigned while signing credentials are being established. See the Gatekeeper (macOS) and SmartScreen (Windows) troubleshooting guides for one-time bypass steps."
+        "q": "Are the installers signed?",
+        "a": "Test builds (RC) may not be signed yet. The Gatekeeper (macOS) and SmartScreen (Windows) guides show how to allow the app once."
       }
     }
   },
   "footer": {
-    "tagline": "Privacy-first focus for macOS, Windows, and Linux.",
+    "tagline": "Private focus for macOS, Windows and Linux.",
     "mitLicense": "MIT License",
     "links": "Links",
     "privacy": "Privacy",
     "buyCoffee": "Buy Me a Coffee",
     "copyright": "All rights reserved.",
-    "landingAt": "Landing at"
+    "landingAt": "Landing at",
+    "explore": "Explore"
   }
 }
