@@ -67,4 +67,4 @@ GitHub Actions em `push main` → `npm ci` + `npm run build` → `dist/` → Pag
 | 2025-06 | SPA React com seções ordenadas conforme brief |
 | 2025-06 | Mesh Canvas 2D substitui shaders WebGL dos protótipos (removido em 2026-10) |
 | 2026-07 | Screenshots versionados em `public/screenshots/app/<version>-<platform>/`; features checklist + compact/tray |
-| 2026-10 | Refresh visual: tema claro/escuro, paleta laranja do app, Hero com mockup, Features em bento (Pomodoro, Hábitos, Lembretes, Calendário), Screenshots em abas (set `0.10.0-rc.5-macos-planner`), Swiper e canvases removidos |
+| 2026-10 | Refresh visual: tema claro/escuro, paleta laranja do app, Hero com mockup, Features em bento (Pomodoro, Hábitos, Lembretes, Calendário), Screenshots em abas (set `1.0.1-macos`), Swiper e canvases removidos |

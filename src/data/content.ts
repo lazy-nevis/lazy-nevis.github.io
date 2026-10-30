@@ -134,11 +134,11 @@ export const LINUX_DEPS_CMD =
   'sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libayatana-appindicator3-1'
 
 /**
- * Active capture set from the app repo (`docs/screenshots/macos/`, app 0.10.0-rc.5 + planner suite).
+ * Active capture set from the app repo (`docs/screenshots/macos/`, app 1.0.1 (stable)
  * Copied into `public/screenshots/app/<SCREENSHOT_SET>/` as WebP. Keep older version
  * folders for history; only change this constant + SCREENSHOTS when promoting a new set.
  */
-export const SCREENSHOT_SET = '0.10.0-rc.5-macos-planner' as const
+export const SCREENSHOT_SET = '1.0.1-macos' as const
 
 export type ScreenshotItem = {
   /** i18n key under `screenshots.items.*` */
